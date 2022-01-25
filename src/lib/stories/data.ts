@@ -1,39 +1,6 @@
-export const languages = [
-  'ko-kr',
-  'en-ph',
-  'th-th',
-  'vi-vn',
-  'zh-cn',
-] as const;
+import type { Story } from '$lib/stories/types';
 
-export type Language = typeof languages[number];
-
-export const levels = [1, 2, 3, 4, 5, 6] as const;
-
-export type Level = typeof levels[number];
-
-export const topics = [
-  '과학',
-  '동물',
-  '모험',
-  '생활',
-  '역사',
-  '음식',
-  '자연',
-] as const;
-
-export type Topic = typeof topics[number];
-
-export type Story = {
-  id: number;
-  level: Level;
-  number: number;
-  language: Language;
-  title: string;
-  topics: Set<Topic>;
-};
-
-export const stories: Story[] = [
+const stories: Story[] = [
   {
     id: 1,
     level: 1,
@@ -1928,3 +1895,5 @@ export const stories: Story[] = [
     ]),
   },
 ];
+
+export default stories;
