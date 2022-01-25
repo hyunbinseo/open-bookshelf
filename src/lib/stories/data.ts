@@ -909,7 +909,9 @@ const stories: Story[] = [
     number: 802,
     language: 'en-ph',
     title: '황냔의 하루',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 94,
@@ -927,7 +929,9 @@ const stories: Story[] = [
     number: 802,
     language: 'th-th',
     title: '황냔의 하루',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 96,
@@ -935,7 +939,9 @@ const stories: Story[] = [
     number: 802,
     language: 'vi-vn',
     title: '황냔의 하루',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 97,
@@ -943,7 +949,9 @@ const stories: Story[] = [
     number: 802,
     language: 'zh-cn',
     title: '황냔의 하루',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 98,
@@ -951,7 +959,9 @@ const stories: Story[] = [
     number: 803,
     language: 'en-ph',
     title: '마이의 베트남 설날',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 99,
@@ -969,7 +979,9 @@ const stories: Story[] = [
     number: 803,
     language: 'th-th',
     title: '마이의 베트남 설날',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 101,
@@ -977,7 +989,9 @@ const stories: Story[] = [
     number: 803,
     language: 'vi-vn',
     title: '마이의 베트남 설날',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 102,
@@ -985,7 +999,9 @@ const stories: Story[] = [
     number: 803,
     language: 'zh-cn',
     title: '마이의 베트남 설날',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 103,
@@ -993,7 +1009,9 @@ const stories: Story[] = [
     number: 804,
     language: 'en-ph',
     title: '베트남 도시 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 104,
@@ -1011,7 +1029,9 @@ const stories: Story[] = [
     number: 804,
     language: 'th-th',
     title: '베트남 도시 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 106,
@@ -1019,7 +1039,9 @@ const stories: Story[] = [
     number: 804,
     language: 'vi-vn',
     title: '베트남 도시 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 107,
@@ -1027,7 +1049,9 @@ const stories: Story[] = [
     number: 804,
     language: 'zh-cn',
     title: '베트남 도시 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 108,
@@ -1035,7 +1059,10 @@ const stories: Story[] = [
     number: 805,
     language: 'en-ph',
     title: '베트남 음식점에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+      '음식',
+    ]),
   },
   {
     id: 109,
@@ -1054,7 +1081,10 @@ const stories: Story[] = [
     number: 805,
     language: 'th-th',
     title: '베트남 음식점에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+      '음식',
+    ]),
   },
   {
     id: 111,
@@ -1062,7 +1092,10 @@ const stories: Story[] = [
     number: 805,
     language: 'vi-vn',
     title: '베트남 음식점에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+      '음식',
+    ]),
   },
   {
     id: 112,
@@ -1070,7 +1103,10 @@ const stories: Story[] = [
     number: 805,
     language: 'zh-cn',
     title: '베트남 음식점에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+      '음식',
+    ]),
   },
   {
     id: 113,
@@ -1078,7 +1114,9 @@ const stories: Story[] = [
     number: 806,
     language: 'en-ph',
     title: '중국 만두 이야기',
-    topics: new Set(),
+    topics: new Set([
+      '음식',
+    ]),
   },
   {
     id: 114,
@@ -1096,7 +1134,9 @@ const stories: Story[] = [
     number: 806,
     language: 'th-th',
     title: '중국 만두 이야기',
-    topics: new Set(),
+    topics: new Set([
+      '음식',
+    ]),
   },
   {
     id: 116,
@@ -1104,7 +1144,9 @@ const stories: Story[] = [
     number: 806,
     language: 'vi-vn',
     title: '중국 만두 이야기',
-    topics: new Set(),
+    topics: new Set([
+      '음식',
+    ]),
   },
   {
     id: 117,
@@ -1112,7 +1154,9 @@ const stories: Story[] = [
     number: 806,
     language: 'zh-cn',
     title: '중국 만두 이야기',
-    topics: new Set(),
+    topics: new Set([
+      '음식',
+    ]),
   },
   {
     id: 118,
@@ -1160,7 +1204,9 @@ const stories: Story[] = [
     number: 808,
     language: 'en-ph',
     title: '중국 베이징에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 124,
@@ -1178,7 +1224,9 @@ const stories: Story[] = [
     number: 808,
     language: 'th-th',
     title: '중국 베이징에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 126,
@@ -1186,7 +1234,9 @@ const stories: Story[] = [
     number: 808,
     language: 'vi-vn',
     title: '중국 베이징에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 127,
@@ -1194,7 +1244,9 @@ const stories: Story[] = [
     number: 808,
     language: 'zh-cn',
     title: '중국 베이징에 갔어요',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 128,
@@ -1202,7 +1254,9 @@ const stories: Story[] = [
     number: 809,
     language: 'en-ph',
     title: '즐거운 춘절 맞이',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 129,
@@ -1220,7 +1274,9 @@ const stories: Story[] = [
     number: 809,
     language: 'th-th',
     title: '즐거운 춘절 맞이',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 131,
@@ -1228,7 +1284,9 @@ const stories: Story[] = [
     number: 809,
     language: 'vi-vn',
     title: '즐거운 춘절 맞이',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 132,
@@ -1236,7 +1294,9 @@ const stories: Story[] = [
     number: 809,
     language: 'zh-cn',
     title: '즐거운 춘절 맞이',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 133,
@@ -1324,7 +1384,9 @@ const stories: Story[] = [
     number: 812,
     language: 'en-ph',
     title: '필리핀의 크리스마스',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 144,
@@ -1342,7 +1404,9 @@ const stories: Story[] = [
     number: 812,
     language: 'th-th',
     title: '필리핀의 크리스마스',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 146,
@@ -1350,7 +1414,9 @@ const stories: Story[] = [
     number: 812,
     language: 'vi-vn',
     title: '필리핀의 크리스마스',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 147,
@@ -1358,7 +1424,9 @@ const stories: Story[] = [
     number: 812,
     language: 'zh-cn',
     title: '필리핀의 크리스마스',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 148,
@@ -1366,7 +1434,9 @@ const stories: Story[] = [
     number: 813,
     language: 'en-ph',
     title: '일곱 번째 생일 파티',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 149,
@@ -1384,7 +1454,9 @@ const stories: Story[] = [
     number: 813,
     language: 'th-th',
     title: '일곱 번째 생일 파티',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 151,
@@ -1392,7 +1464,9 @@ const stories: Story[] = [
     number: 813,
     language: 'vi-vn',
     title: '일곱 번째 생일 파티',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 152,
@@ -1400,7 +1474,9 @@ const stories: Story[] = [
     number: 813,
     language: 'zh-cn',
     title: '일곱 번째 생일 파티',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 153,
@@ -1408,7 +1484,9 @@ const stories: Story[] = [
     number: 814,
     language: 'en-ph',
     title: '빨간 트라이시클 엔텡',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 154,
@@ -1426,7 +1504,9 @@ const stories: Story[] = [
     number: 814,
     language: 'th-th',
     title: '빨간 트라이시클 엔텡',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 156,
@@ -1434,7 +1514,9 @@ const stories: Story[] = [
     number: 814,
     language: 'vi-vn',
     title: '빨간 트라이시클 엔텡',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 157,
@@ -1442,7 +1524,9 @@ const stories: Story[] = [
     number: 814,
     language: 'zh-cn',
     title: '빨간 트라이시클 엔텡',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 158,
@@ -1450,7 +1534,9 @@ const stories: Story[] = [
     number: 815,
     language: 'en-ph',
     title: '노란 지프니 포기',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 159,
@@ -1468,7 +1554,9 @@ const stories: Story[] = [
     number: 815,
     language: 'th-th',
     title: '노란 지프니 포기',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 161,
@@ -1476,7 +1564,9 @@ const stories: Story[] = [
     number: 815,
     language: 'vi-vn',
     title: '노란 지프니 포기',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 162,
@@ -1484,7 +1574,9 @@ const stories: Story[] = [
     number: 815,
     language: 'zh-cn',
     title: '노란 지프니 포기',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 163,
@@ -1572,7 +1664,9 @@ const stories: Story[] = [
     number: 818,
     language: 'en-ph',
     title: '물의 축제 송끄란',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 174,
@@ -1590,7 +1684,9 @@ const stories: Story[] = [
     number: 818,
     language: 'th-th',
     title: '물의 축제 송끄란',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 176,
@@ -1598,7 +1694,9 @@ const stories: Story[] = [
     number: 818,
     language: 'vi-vn',
     title: '물의 축제 송끄란',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 177,
@@ -1606,7 +1704,9 @@ const stories: Story[] = [
     number: 818,
     language: 'zh-cn',
     title: '물의 축제 송끄란',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 178,
@@ -1614,7 +1714,9 @@ const stories: Story[] = [
     number: 819,
     language: 'en-ph',
     title: '빛의 축제 러이끄라통',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 179,
@@ -1632,7 +1734,9 @@ const stories: Story[] = [
     number: 819,
     language: 'th-th',
     title: '빛의 축제 러이끄라통',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 181,
@@ -1640,7 +1744,9 @@ const stories: Story[] = [
     number: 819,
     language: 'vi-vn',
     title: '빛의 축제 러이끄라통',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 182,
@@ -1648,7 +1754,9 @@ const stories: Story[] = [
     number: 819,
     language: 'zh-cn',
     title: '빛의 축제 러이끄라통',
-    topics: new Set(),
+    topics: new Set([
+      '생활',
+    ]),
   },
   {
     id: 183,
@@ -1656,7 +1764,9 @@ const stories: Story[] = [
     number: 820,
     language: 'en-ph',
     title: '신나는 태국 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 184,
@@ -1674,7 +1784,9 @@ const stories: Story[] = [
     number: 820,
     language: 'th-th',
     title: '신나는 태국 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 186,
@@ -1682,7 +1794,9 @@ const stories: Story[] = [
     number: 820,
     language: 'vi-vn',
     title: '신나는 태국 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 187,
@@ -1690,7 +1804,9 @@ const stories: Story[] = [
     number: 820,
     language: 'zh-cn',
     title: '신나는 태국 여행',
-    topics: new Set(),
+    topics: new Set([
+      '모험',
+    ]),
   },
   {
     id: 188,
@@ -1698,7 +1814,9 @@ const stories: Story[] = [
     number: 821,
     language: 'en-ph',
     title: '병아리 별',
-    topics: new Set(),
+    topics: new Set([
+      '동물',
+    ]),
   },
   {
     id: 189,
@@ -1716,7 +1834,9 @@ const stories: Story[] = [
     number: 821,
     language: 'th-th',
     title: '병아리 별',
-    topics: new Set(),
+    topics: new Set([
+      '동물',
+    ]),
   },
   {
     id: 191,
@@ -1724,7 +1844,9 @@ const stories: Story[] = [
     number: 821,
     language: 'vi-vn',
     title: '병아리 별',
-    topics: new Set(),
+    topics: new Set([
+      '동물',
+    ]),
   },
   {
     id: 192,
@@ -1732,7 +1854,9 @@ const stories: Story[] = [
     number: 821,
     language: 'zh-cn',
     title: '병아리 별',
-    topics: new Set(),
+    topics: new Set([
+      '동물',
+    ]),
   },
   {
     id: 193,
