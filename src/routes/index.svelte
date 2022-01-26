@@ -102,6 +102,7 @@
 				<a
 					href={`http://xn--hu1b40go5ck8x.com/e-book/ecatalog5.php?Dir=${story.id}&catimage=1`}
 					target="_blank"
+					rel="noopener"
 				>
 					{story.title}
 				</a>
