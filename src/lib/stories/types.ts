@@ -8,7 +8,7 @@ export const languages = [
 
 export type Language = typeof languages[number];
 
-export const languageEnum = {
+export const languageEnum: { [key in Language]: string; } = {
   'ko-kr': '한국어',
   'en-ph': 'English',
   'th-th': 'ไทย',
