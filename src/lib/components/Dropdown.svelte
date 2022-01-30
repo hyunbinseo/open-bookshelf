@@ -1,5 +1,14 @@
+<script context="module" lang="ts">
+	const collapseFunctions = new Set<Function>();
+	export const collapseAllDropdown = () => {
+		[...collapseFunctions].forEach((fn) => {
+			fn();
+		});
+	};
+</script>
+
 <script lang="ts">
-	import { tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { fly } from 'svelte/transition';
 
 	import focusLock from 'dom-focus-lock';
@@ -18,10 +27,17 @@
 	if (allowValueReset) options = [undefined, ...options];
 	let expanded: boolean = false;
 
+	onMount(() => {
+		collapseFunctions.add(() => {
+			expanded = false;
+		});
+	});
+
 	let button: HTMLElement;
 	let dropdown: HTMLElement;
 
 	const handleDropdown = async (expand: boolean) => {
+		if (expand) collapseAllDropdown();
 		expanded = expand;
 		if (expanded) {
 			await tick(); // Wait for dropdown element to be created
