@@ -33,7 +33,7 @@
 		<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 2xl:max-w-screen-2xl">
 			<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
 			<Filters />
-			<section aria-labelledby="stories-heading" class="mt-8 pb-16">
+			<section aria-labelledby="stories-heading" class="mt-2 pb-16">
 				<h2 id="stories-heading" class="sr-only">이야기 목록</h2>
 				{#if !$isLoaded}
 					<p>불러오는 중입니다.</p>

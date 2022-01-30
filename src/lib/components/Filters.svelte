@@ -13,7 +13,10 @@
 	import { selLanguage, selLevel, selTopic, selSort } from '$lib/stores';
 </script>
 
-<section aria-labelledby="filter-heading" class="border-t border-gray-200 pt-6">
+<section
+	aria-labelledby="filter-heading"
+	class="sticky top-0 z-10 border-t border-gray-200 bg-gray-50 bg-opacity-90 py-6 backdrop-blur-sm"
+>
 	<h2 id="filter-heading" class="sr-only">상세 검색</h2>
 	<div class="flex items-center justify-between">
 		<Dropdown
