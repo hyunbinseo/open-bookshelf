@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { tick } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { sineOut } from 'svelte/easing';
+
+	import focusLock from 'dom-focus-lock';
 
 	export let alignToLeft = false;
 	export let allowValueReset = false;
@@ -15,16 +18,37 @@
 
 	if (allowValueReset) options = [undefined, ...options];
 	let expanded: boolean = false;
+
+	let button: HTMLElement;
+	let dropdown: HTMLElement;
+
+	const handleDropdown = async (expand: boolean) => {
+		expanded = expand;
+		if (expanded) {
+			await tick(); // Wait for dropdown element to be created
+			focusLock.on(dropdown);
+		} else {
+			focusLock.off(dropdown);
+			button.focus();
+		}
+	};
 </script>
+
+<svelte:window
+	on:keydown={async (e) => {
+		if (expanded && e.code === 'Escape') handleDropdown(false);
+	}}
+/>
 
 <div id="menu" class="relative inline-block text-left">
 	<div>
 		<button
+			bind:this={button}
 			type="button"
 			class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
 			aria-expanded="false"
 			on:click={() => {
-				expanded = !expanded;
+				handleDropdown(!expanded);
 			}}
 		>
 			<span>{title}</span>
@@ -59,7 +83,7 @@
 			class="fixed inset-0 z-10 bg-gray-500 bg-opacity-50 transition-opacity"
 			aria-hidden="true"
 			on:click={() => {
-				expanded = false;
+				handleDropdown(false);
 			}}
 		/>
 		<div
@@ -68,7 +92,7 @@
 				alignToLeft ? 'left-0' : 'right-0'
 			}`}
 		>
-			<form>
+			<form bind:this={dropdown}>
 				{#each options as option (option)}
 					<label
 						for={`${name}-${option}`}
@@ -81,7 +105,7 @@
 							id={`${name}-${option}`}
 							bind:group={value}
 							on:input={() => {
-								expanded = false;
+								handleDropdown(false);
 							}}
 							class="peer sr-only"
 						/>
