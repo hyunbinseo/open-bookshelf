@@ -2,6 +2,8 @@
 	import Container from '$lib/components/Container.svelte';
 	import Dropdown from '$lib/components/Dropdown.svelte';
 
+	import { sidebarExpanded, sidebarToggle } from '$lib/stores';
+
 	import {
 		sortOptions,
 		sortOptionEnum,
@@ -34,8 +36,12 @@
 
 				<!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
 				<button
+					bind:this={$sidebarToggle}
 					type="button"
 					class="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden"
+					on:click={() => {
+						sidebarExpanded.set(true);
+					}}
 				>
 					상세 검색
 				</button>

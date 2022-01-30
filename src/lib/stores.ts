@@ -11,6 +11,9 @@ export const selLanguage = writable<Language>('ko-kr');
 export const selLevel = writable<Level | undefined>();
 export const selTopic = writable<Topic | undefined>();
 
+export const sidebarToggle = writable<HTMLElement>();
+export const sidebarExpanded = writable<boolean>(false);
+
 export const reqStories = derived(
   [isLoaded, selSort, selLanguage, selLevel, selTopic],
   ([$isLoaded, $selSort, $selLanguage, $selLevel, $selTopic]) => {
