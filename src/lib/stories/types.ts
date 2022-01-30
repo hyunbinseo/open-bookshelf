@@ -1,3 +1,12 @@
+export const sortOptions = ['number', 'abc'] as const;
+
+export type SortOption = typeof sortOptions[number];
+
+export const sortOptionEnum: { [key in SortOption]: string } = {
+  number: '번호',
+  abc: '가나다',
+};
+
 export const languages = [
   'ko-kr',
   'en-ph',
