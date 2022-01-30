@@ -15,7 +15,10 @@
 	target="_blank"
 	rel="noopener"
 >
-	<div class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-lg">
+	<div
+		class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-lg"
+		style="-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0)"
+	>
 		<picture>
 			<source srcset={generateImgSrc('webp')} type="image/webp" />
 			<img
