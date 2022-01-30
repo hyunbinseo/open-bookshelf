@@ -1,17 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import {
-		sortOptions,
-		sortOptionEnum,
-		languages,
-		languageEnum,
-		levels,
-		topics
-	} from '$lib/stories/types';
+	import Card from '$lib/components/Card.svelte';
+	import Filters from '$lib/components/Filters.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Header from '$lib/components/Header.svelte';
+
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
-	import { isLoaded, selLanguage, selLevel, selTopic, reqStories, selSort } from '$lib/stores';
+	import { isLoaded, selLanguage, selLevel, selTopic, reqStories } from '$lib/stores';
 
 	onMount(() => {
 		const { searchParams } = new URL(document.URL);
@@ -31,80 +28,41 @@
 	});
 </script>
 
-<h3>정렬</h3>
-
-{#each sortOptions as sortOption}
-	<label>
-		<input type="radio" bind:group={$selSort} name="sortOption" value={sortOption} />
-		{sortOptionEnum[sortOption]}
-	</label>
-{/each}
-
-<h3>언어</h3>
-
-{#each languages as language}
-	<label>
-		<input type="radio" bind:group={$selLanguage} name="language" value={language} />
-		{languageEnum[language]}
-	</label>
-{/each}
-
-<h3>주제</h3>
-
-<button
-	on:click={() => {
-		selTopic.set(undefined);
-	}}>초기화</button
->
-
-{#each topics as topic}
-	<label>
-		<input type="radio" bind:group={$selTopic} name="topic" value={topic} />
-		{topic}
-	</label>
-{/each}
-
-<h3>단계</h3>
-
-<button
-	on:click={() => {
-		selLevel.set(undefined);
-	}}>초기화</button
->
-
-{#each levels as level}
-	<label>
-		<input type="radio" bind:group={$selLevel} name="level" value={level} />
-		{level}
-	</label>
-{/each}
-
-<h3>이야기</h3>
-
-{#if !$isLoaded}
-	불러오는 중입니다.
-{:else if !$reqStories.length}
-	검색 결과가 없습니다.
-	<button
-		on:click={() => {
-			selTopic.set(undefined);
-			selLevel.set(undefined);
-		}}
-	>
-		필터 초기화
-	</button>
-{:else}
-	<ul>
-		{#each $reqStories as story}
-			<li>
-				<a
-					href={`http://xn--hu1b40go5ck8x.com/e-book/ecatalog5.php?Dir=${story.id}&catimage=1`}
-					target="_blank"
-					rel="noopener"
-				>
-					{story.title}
-				</a>
-			</li>
-		{/each}
-	</ul>
-{/if}
+<div class="bg-gray-50">
+	<main>
+		<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 2xl:max-w-screen-2xl">
+			<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
+			<Filters />
+			<section aria-labelledby="stories-heading" class="mt-8 pb-16">
+				<h2 id="stories-heading" class="sr-only">이야기 목록</h2>
+				{#if !$isLoaded}
+					<p>불러오는 중입니다.</p>
+				{:else if !$reqStories.length}
+					<p>검색 결과가 없습니다.</p>
+					<button
+						on:click={() => {
+							selTopic.set(undefined);
+							selLevel.set(undefined);
+						}}
+					>
+						검색 조건 초기화
+					</button>
+				{:else}
+					<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+						{#each $reqStories as story (story.id)}
+							<Card {story} />
+						{/each}
+					</div>
+				{/if}
+			</section>
+		</div>
+	</main>
+	<Footer>
+		<a
+			href="http://xn--hu1b40go5ck8x.com/"
+			class="underline underline-offset-2"
+			target="_blank"
+			rel="noopener">두루책방</a
+		>의 저작자는 도서문화재단씨앗과 에누마입니다.
+	</Footer>
+</div>
