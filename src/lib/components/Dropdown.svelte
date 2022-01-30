@@ -111,9 +111,11 @@
 							value={option}
 							id={`${name}-${option}`}
 							bind:group={value}
-							on:input={() => {
+							on:click={() => {
 								handleDropdown(false);
-								window.scrollTo(0, 0);
+								if (option !== value) {
+									window.scrollTo(0, 0);
+								}
 							}}
 							class="peer sr-only"
 						/>
