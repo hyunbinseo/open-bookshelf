@@ -64,13 +64,16 @@
 		/>
 		<div
 			transition:fly={{ y: -10 }}
-			class={`absolute z-20 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none ${
+			class={`absolute z-20 mt-2 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none ${
 				alignToLeft ? 'left-0' : 'right-0'
 			}`}
 		>
-			<form class="space-y-4">
+			<form>
 				{#each options as option (option)}
-					<div class="flex items-center">
+					<label
+						for={`${name}-${option}`}
+						class="block overflow-hidden first:rounded-t-md last:rounded-b-md"
+					>
 						<input
 							{name}
 							type="radio"
@@ -80,15 +83,14 @@
 							on:input={() => {
 								expanded = false;
 							}}
-							class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+							class="peer sr-only"
 						/>
-						<label
-							for={`${name}-${option}`}
-							class="ml-3 whitespace-nowrap pr-1 text-sm font-medium text-gray-900"
+						<p
+							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 peer-checked:bg-indigo-50 peer-checked:text-indigo-900 peer-focus:bg-indigo-600 peer-focus:text-indigo-50"
 						>
 							{!option ? '모두' : `${optionsEnum?.[option] || option}${optionSuffix}`}
-						</label>
-					</div>
+						</p>
+					</label>
 				{/each}
 			</form>
 		</div>
