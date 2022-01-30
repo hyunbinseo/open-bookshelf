@@ -1,7 +1,15 @@
+<script context="module" lang="ts">
+	const collapseFunctions = new Set<Function>();
+	export const collapseAllDropdown = () => {
+		[...collapseFunctions].forEach((fn) => {
+			fn();
+		});
+	};
+</script>
+
 <script lang="ts">
-	import { tick } from 'svelte';
-	import { fly, fade } from 'svelte/transition';
-	import { sineOut } from 'svelte/easing';
+	import { onMount, tick } from 'svelte';
+	import { fly } from 'svelte/transition';
 
 	import focusLock from 'dom-focus-lock';
 
@@ -19,10 +27,17 @@
 	if (allowValueReset) options = [undefined, ...options];
 	let expanded: boolean = false;
 
+	onMount(() => {
+		collapseFunctions.add(() => {
+			expanded = false;
+		});
+	});
+
 	let button: HTMLElement;
 	let dropdown: HTMLElement;
 
 	const handleDropdown = async (expand: boolean) => {
+		if (expand) collapseAllDropdown();
 		expanded = expand;
 		if (expanded) {
 			await tick(); // Wait for dropdown element to be created
@@ -40,7 +55,7 @@
 	}}
 />
 
-<div id="menu" class="relative inline-block text-left">
+<div id="menu" class="relative z-10 inline-block text-left">
 	<div>
 		<button
 			bind:this={button}
@@ -79,16 +94,8 @@
 	</div>
 	{#if expanded}
 		<div
-			transition:fade={{ duration: 300, easing: sineOut }}
-			class="fixed inset-0 z-10 bg-gray-500 bg-opacity-50 transition-opacity"
-			aria-hidden="true"
-			on:click={() => {
-				handleDropdown(false);
-			}}
-		/>
-		<div
 			transition:fly={{ y: -10 }}
-			class={`absolute z-20 mt-2 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none ${
+			class={`absolute mt-2 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none ${
 				alignToLeft ? 'left-0' : 'right-0'
 			}`}
 		>
@@ -104,13 +111,16 @@
 							value={option}
 							id={`${name}-${option}`}
 							bind:group={value}
-							on:input={() => {
+							on:click={() => {
 								handleDropdown(false);
+								if (option !== value) {
+									window.scrollTo(0, 0);
+								}
 							}}
 							class="peer sr-only"
 						/>
 						<p
-							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 peer-checked:bg-indigo-50 peer-checked:text-indigo-900 peer-focus:bg-indigo-600 peer-focus:text-indigo-50"
+							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900 peer-focus:bg-indigo-200 peer-focus:text-indigo-900"
 						>
 							{!option ? '모두' : `${optionsEnum?.[option] || option}${optionSuffix}`}
 						</p>
