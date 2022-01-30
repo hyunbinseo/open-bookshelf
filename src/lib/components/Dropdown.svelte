@@ -113,6 +113,7 @@
 							bind:group={value}
 							on:input={() => {
 								handleDropdown(false);
+								window.scrollTo(0, 0);
 							}}
 							class="peer sr-only"
 						/>
