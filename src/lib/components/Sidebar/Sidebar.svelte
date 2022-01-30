@@ -78,9 +78,7 @@
 			</div>
 
 			<!-- Filters -->
-			<form class="mt-4">
-				<div class="border-t border-gray-200 px-4 py-6" />
-			</form>
+			<form class="mt-4" />
 		</div>
 	</div>
 {/if}

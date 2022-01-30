@@ -1,8 +1,6 @@
 <script lang="ts">
 	import Container from '$lib/components/Container.svelte';
-	import Dropdown from '$lib/components/Dropdown.svelte';
-
-	import { sidebarExpanded, sidebarToggle } from '$lib/stores';
+	import Dropdown from '$lib/components/MenuBar/Dropdown.svelte';
 
 	import {
 		sortOptions,
@@ -13,7 +11,14 @@
 		topics
 	} from '$lib/stories/types';
 
-	import { selLanguage, selLevel, selTopic, selSort } from '$lib/stores';
+	import {
+		sidebarExpanded,
+		sidebarToggle,
+		selLanguage,
+		selLevel,
+		selTopic,
+		selSort
+	} from '$lib/stores';
 </script>
 
 <section
