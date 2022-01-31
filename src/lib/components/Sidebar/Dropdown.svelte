@@ -23,8 +23,7 @@
 
 	const { allowValueReset, options, title, name } = commonProps;
 
-	// Unique prop
-	export let expanded: boolean = false;
+	let expanded: boolean = false;
 
 	onMount(() => {
 		collapseFunctions.add(() => {

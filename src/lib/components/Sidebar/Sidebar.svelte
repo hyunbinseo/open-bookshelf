@@ -84,7 +84,7 @@
 			<!-- Filters -->
 			<form class="mt-4">
 				<Dropdown bind:value={$selLanguage} commonProps={languageProps} />
-				<Dropdown bind:value={$selTopic} commonProps={topicProps} expanded={true} />
+				<Dropdown bind:value={$selTopic} commonProps={topicProps} />
 				<Dropdown bind:value={$selLevel} commonProps={levelProps} />
 			</form>
 		</div>
