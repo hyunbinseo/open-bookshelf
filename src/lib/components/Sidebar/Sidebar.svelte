@@ -21,7 +21,7 @@
 				focusLock.on(sidebar);
 			} else {
 				focusLock.off(sidebar);
-				$sidebarToggle.focus();
+				$sidebarToggle?.focus();
 			}
 		}
 	})();
