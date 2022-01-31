@@ -82,6 +82,9 @@
 							name={`${name}-@sidebar`}
 							value={option}
 							id={`${name}-${option}-@sidebar`}
+							on:click={() => {
+								expanded = false;
+							}}
 							on:input={() => {
 								window.scrollTo(0, 0);
 							}}
