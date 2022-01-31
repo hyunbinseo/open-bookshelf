@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Container from '$lib/components/Container.svelte';
+	import Badge from '$lib/components/MenuBar/Badge.svelte';
 	import Dropdown from '$lib/components/MenuBar/Dropdown.svelte';
 
 	import { sortProps, languageProps, topicProps, levelProps } from '$lib/stories/filters';
@@ -34,6 +35,9 @@
 					}}
 				>
 					상세 검색
+					<Badge value={$selLanguage} commonProps={languageProps} />
+					<Badge value={$selTopic} commonProps={topicProps} />
+					<Badge value={$selLevel} commonProps={levelProps} />
 				</button>
 
 				<div class="hidden sm:flex sm:items-baseline sm:space-x-8">

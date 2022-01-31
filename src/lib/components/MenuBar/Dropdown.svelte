@@ -13,6 +13,8 @@
 
 	import focusLock from 'dom-focus-lock';
 
+	import Badge from '$lib/components/MenuBar/Badge.svelte';
+
 	import { generateOptionText } from '$lib/stories/filters';
 
 	import type { Option, FilterProps } from '$lib/stories/filters';
@@ -70,13 +72,7 @@
 			}}
 		>
 			<span>{title}</span>
-			{#if value}
-				<span
-					class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700"
-				>
-					{generateOptionText(value, commonProps)}
-				</span>
-			{/if}
+			<Badge {value} {commonProps} />
 			<!-- Heroicon name: solid/chevron-down -->
 			<svg
 				class={`-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500 ${
