@@ -6,7 +6,11 @@
 
 	import { browser } from '$app/env';
 
-	import { sidebarExpanded, sidebarToggle } from '$lib/stores';
+	import Dropdown from '$lib/components/Sidebar/Dropdown.svelte';
+
+	import { languageProps, topicProps, levelProps } from '$lib/stories/filters';
+
+	import { sidebarExpanded, sidebarToggle, selLanguage, selLevel, selTopic } from '$lib/stores';
 
 	let sidebar: HTMLElement;
 
@@ -78,7 +82,11 @@
 			</div>
 
 			<!-- Filters -->
-			<form class="mt-4" />
+			<form class="mt-4">
+				<Dropdown bind:value={$selLanguage} {...languageProps} />
+				<Dropdown bind:value={$selTopic} {...topicProps} expanded={true} />
+				<Dropdown bind:value={$selLevel} {...levelProps} />
+			</form>
 		</div>
 	</div>
 {/if}

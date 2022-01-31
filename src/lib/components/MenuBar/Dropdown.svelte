@@ -111,11 +111,11 @@
 						class="block overflow-hidden first:rounded-t-md last:rounded-b-md"
 					>
 						<input
-							{name}
 							type="radio"
+							bind:group={value}
+							{name}
 							value={option}
 							id={`${name}-${option}`}
-							bind:group={value}
 							on:click={() => {
 								handleDropdown(false);
 								if (option !== value) {
