@@ -62,6 +62,7 @@
 						<Card {story} />
 					{/each}
 				</div>
+				<p class="pt-16 text-center lg:hidden">목록의 끝입니다.</p>
 			{/if}
 		</section>
 	</Container>
