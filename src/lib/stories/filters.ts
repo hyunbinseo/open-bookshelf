@@ -7,12 +7,14 @@ import {
   topics,
 } from '$lib/stories/types';
 
+export type Option = string | number;
+
 export type FilterProps = {
   allowValueReset?: boolean;
   title: string;
   name: string;
-  options: readonly (string | number)[];
-  optionsEnum?: { [option: string | number]: string; };
+  options: readonly (Option)[];
+  optionsEnum?: { [option: Option]: string; };
   optionSuffix?: string;
 };
 
@@ -45,3 +47,5 @@ export const levelProps: FilterProps = {
   options: levels,
   optionSuffix: '단계',
 };
+
+export const generateOptionText = (option: Option, { optionsEnum, optionSuffix }: FilterProps): string => (!option ? '모두' : `${optionsEnum?.[option] || option}${optionSuffix || ''}`);

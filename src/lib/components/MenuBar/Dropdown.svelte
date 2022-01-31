@@ -13,15 +13,17 @@
 
 	import focusLock from 'dom-focus-lock';
 
-	import type { FilterProps } from '$lib/stories/filters';
+	import { generateOptionText } from '$lib/stories/filters';
+
+	import type { Option, FilterProps } from '$lib/stories/filters';
 
 	// Value prop - binds with store
-	export let value: string | number = undefined;
+	export let value: Option = undefined;
 
 	// Common prop
 	export let commonProps: FilterProps;
 
-	const { allowValueReset, options, title, name, optionsEnum, optionSuffix } = commonProps;
+	const { allowValueReset, options, title, name } = commonProps;
 
 	// Unique prop
 	export let alignToLeft = false;
@@ -72,7 +74,7 @@
 				<span
 					class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700"
 				>
-					{optionsEnum ? optionsEnum[value] : value}
+					{generateOptionText(value, commonProps)}
 				</span>
 			{/if}
 			<!-- Heroicon name: solid/chevron-down -->
@@ -123,7 +125,7 @@
 						<p
 							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900 peer-focus:bg-indigo-200 peer-focus:text-indigo-900"
 						>
-							{!option ? '모두' : `${optionsEnum?.[option] || option}${optionSuffix}`}
+							{generateOptionText(option, commonProps)}
 						</p>
 					</label>
 				{/each}

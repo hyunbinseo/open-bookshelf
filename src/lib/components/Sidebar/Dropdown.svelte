@@ -11,15 +11,17 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
-	import type { FilterProps } from '$lib/stories/filters';
+	import { generateOptionText } from '$lib/stories/filters';
+
+	import type { Option, FilterProps } from '$lib/stories/filters';
 
 	// Value prop - binds with store
-	export let value: string | number = undefined;
+	export let value: Option = undefined;
 
 	// Common prop
 	export let commonProps: FilterProps;
 
-	const { allowValueReset, options, title, name, optionsEnum, optionSuffix } = commonProps;
+	const { allowValueReset, options, title, name } = commonProps;
 
 	// Unique prop
 	export let expanded: boolean = false;
@@ -80,7 +82,7 @@
 							class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
 						/>
 						<label for={`${name}-${option}-@sidebar`} class="ml-3 text-sm text-gray-500">
-							{!option ? '모두' : `${optionsEnum?.[option] || option}${optionSuffix}`}
+							{generateOptionText(option, commonProps)}
 						</label>
 					</div>
 				{/each}
