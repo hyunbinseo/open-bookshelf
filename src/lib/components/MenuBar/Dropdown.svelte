@@ -75,8 +75,8 @@
 			<Badge {value} {commonProps} />
 			<!-- Heroicon name: solid/chevron-down -->
 			<svg
-				class={`-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500 ${
-					expanded ? 'rotate-180' : ''
+				class={`-mr-1 ml-1 h-5 w-5 flex-shrink-0 transform text-gray-400 transition-transform duration-[400ms] group-hover:text-gray-500 ${
+					expanded ? 'rotate-180' : 'rotate-0'
 				}`}
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 20 20"

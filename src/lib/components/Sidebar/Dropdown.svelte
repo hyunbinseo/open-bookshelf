@@ -56,7 +56,9 @@
 			<span class="ml-6 flex items-center">
 				<!-- Heroicon name: solid/chevron-down -->
 				<svg
-					class={`h-5 w-5 transform transition-transform ${expanded ? 'rotate-180' : 'rotate-0'}`}
+					class={`h-5 w-5 transform transition-transform duration-[400ms] ${
+						expanded ? 'rotate-180' : 'rotate-0'
+					}`}
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 20 20"
 					fill="currentColor"
