@@ -65,7 +65,7 @@
 		<button
 			bind:this={button}
 			type="button"
-			class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
+			class="group inline-flex items-center justify-center rounded-sm text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
 			aria-expanded={expanded}
 			on:click={() => {
 				handleDropdown(!expanded);
