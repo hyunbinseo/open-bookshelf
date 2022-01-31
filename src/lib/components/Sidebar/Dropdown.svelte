@@ -37,8 +37,7 @@
 		<button
 			type="button"
 			class="flex w-full items-center justify-between bg-white px-2 py-3 text-sm text-gray-400"
-			aria-controls="filter-section-0"
-			aria-expanded="false"
+			aria-expanded={expanded}
 			on:click={() => {
 				const isExpanded = expanded;
 				collapseAllDropdown();

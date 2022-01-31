@@ -66,7 +66,7 @@
 			bind:this={button}
 			type="button"
 			class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900"
-			aria-expanded="false"
+			aria-expanded={expanded}
 			on:click={() => {
 				handleDropdown(!expanded);
 			}}
