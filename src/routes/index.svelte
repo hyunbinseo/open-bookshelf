@@ -3,6 +3,7 @@
 
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
+	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
 	import Filters from '$lib/components/MenuBar/MenuBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
@@ -47,6 +48,7 @@
 				<p>검색 결과가 없습니다.</p>
 				<button
 					on:click={() => {
+						collapseAllDropdown();
 						selTopic.set(undefined);
 						selLevel.set(undefined);
 						scrollY = 0;
