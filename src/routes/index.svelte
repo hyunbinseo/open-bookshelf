@@ -30,7 +30,7 @@
 	});
 </script>
 
-<div class="bg-gray-50">
+<div class="flex-1 bg-gray-50">
 	<Sidebar />
 	<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
 	<Filters />
