@@ -38,6 +38,7 @@
 		});
 	});
 
+	let scrollY: number;
 	let button: HTMLElement;
 	let dropdown: HTMLElement;
 
@@ -55,6 +56,7 @@
 </script>
 
 <svelte:window
+	bind:scrollY
 	on:keydown={async (e) => {
 		if (expanded && e.code === 'Escape') handleDropdown(false);
 	}}
@@ -112,9 +114,7 @@
 							id={`${name}-${option}`}
 							on:click={() => {
 								handleDropdown(false);
-								if (option !== value) {
-									window.scrollTo(0, 0);
-								}
+								if (option !== value) scrollY = 0;
 							}}
 							class="peer sr-only"
 						/>

@@ -30,7 +30,11 @@
 			expanded = false;
 		});
 	});
+
+	let scrollY: number;
 </script>
+
+<svelte:window bind:scrollY />
 
 <div class="border-t border-gray-200 px-4 py-6">
 	<h3 class="-mx-2 -my-3 flow-root">
@@ -87,7 +91,7 @@
 								expanded = false;
 							}}
 							on:input={() => {
-								window.scrollTo(0, 0);
+								scrollY = 0;
 							}}
 							class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
 						/>

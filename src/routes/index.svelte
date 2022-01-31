@@ -28,7 +28,11 @@
 
 		isLoaded.set(true);
 	});
+
+	let scrollY: number;
 </script>
+
+<svelte:window bind:scrollY />
 
 <div class="flex-1 bg-gray-50">
 	<Sidebar />
@@ -45,6 +49,7 @@
 					on:click={() => {
 						selTopic.set(undefined);
 						selLevel.set(undefined);
+						scrollY = 0;
 					}}
 				>
 					검색 조건 초기화
