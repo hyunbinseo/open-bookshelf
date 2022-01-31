@@ -9,7 +9,7 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
+	import { slide, fade } from 'svelte/transition';
 
 	import { generateOptionText } from '$lib/stories/filters';
 
@@ -46,7 +46,14 @@
 				expanded = !isExpanded;
 			}}
 		>
-			<span class="font-medium text-gray-900">{title}</span>
+			<span class="font-medium text-gray-900">
+				{title}
+				{#if !expanded}
+					<span in:fade class="pl-3 text-gray-500">
+						{generateOptionText(value, commonProps)}
+					</span>
+				{/if}
+			</span>
 			<span class="ml-6 flex items-center">
 				<!-- Heroicon name: solid/chevron-down -->
 				<svg
