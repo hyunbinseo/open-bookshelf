@@ -1,41 +1,22 @@
 <script lang="ts">
-	import { tick } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
-
-	import focusLock from 'dom-focus-lock';
-
-	import { browser } from '$app/env';
 
 	import Dropdown from '$lib/components/Sidebar/Dropdown.svelte';
 
 	import { languageProps, topicProps, levelProps } from '$lib/stories/filters';
 
-	import { sidebarExpanded, sidebarToggle, selLanguage, selLevel, selTopic } from '$lib/stores';
-
-	let sidebar: HTMLElement;
-
-	$: (async () => {
-		if (browser) {
-			if ($sidebarExpanded) {
-				await tick(); // Wait for sidebar element to be created
-				focusLock.on(sidebar);
-			} else {
-				focusLock.off(sidebar);
-				$sidebarToggle?.focus();
-			}
-		}
-	})();
+	import { sidebarEl, sidebarState, selLanguage, selLevel, selTopic } from '$lib/stores';
 </script>
 
 <svelte:window
 	on:keydown={async (e) => {
-		if ($sidebarExpanded && e.code === 'Escape') sidebarExpanded.set(false);
+		if ($sidebarState && e.code === 'Escape') sidebarState.collapse();
 	}}
 />
 
-{#if $sidebarExpanded}
+{#if $sidebarState}
 	<div
-		bind:this={sidebar}
+		bind:this={$sidebarEl}
 		class="fixed inset-0 z-40 flex sm:hidden"
 		role="dialog"
 		aria-modal="true"
@@ -45,7 +26,7 @@
 			class="fixed inset-0 bg-black bg-opacity-50"
 			aria-hidden="true"
 			on:click={() => {
-				sidebarExpanded.set(false);
+				sidebarState.collapse();
 			}}
 		/>
 		<div
@@ -57,7 +38,7 @@
 				<button
 					type="button"
 					on:click={() => {
-						sidebarExpanded.set(false);
+						sidebarState.collapse();
 					}}
 					class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
 				>
