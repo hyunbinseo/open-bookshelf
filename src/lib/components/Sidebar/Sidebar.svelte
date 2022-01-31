@@ -40,7 +40,7 @@
 					on:click={() => {
 						sidebarState.collapse();
 					}}
-					class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+					class="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-50"
 				>
 					<span class="sr-only">메뉴 닫기</span>
 					<!-- Heroicon name: outline/x -->
