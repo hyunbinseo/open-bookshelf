@@ -11,22 +11,18 @@
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 
+	import type { FilterProps } from '$lib/stories/filters';
+
 	// Value prop - binds with store
 	export let value: string | number = undefined;
 
 	// Common prop
-	export let allowValueReset = false;
-	export let title: string;
-	export let name: string;
-	export let options: readonly (string | number)[];
-	export let optionsEnum: { [option: string | number]: string } = undefined;
-	export let optionSuffix: string = '';
+	export let commonProps: FilterProps;
+
+	const { allowValueReset, options, title, name, optionsEnum, optionSuffix } = commonProps;
 
 	// Unique prop
 	export let expanded: boolean = false;
-
-	// Alter provided prop
-	if (allowValueReset) options = [undefined, ...options];
 
 	onMount(() => {
 		collapseFunctions.add(() => {
@@ -70,7 +66,7 @@
 	{#if expanded}
 		<div class="pt-6" transition:slide|local>
 			<div class="space-y-6">
-				{#each options as option (option)}
+				{#each !allowValueReset ? options : [undefined, ...options] as option (option)}
 					<div class="flex items-center">
 						<input
 							type="radio"

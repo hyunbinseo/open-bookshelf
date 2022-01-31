@@ -13,22 +13,18 @@
 
 	import focusLock from 'dom-focus-lock';
 
+	import type { FilterProps } from '$lib/stories/filters';
+
 	// Value prop - binds with store
 	export let value: string | number = undefined;
 
 	// Common prop
-	export let allowValueReset = false;
-	export let title: string;
-	export let name: string;
-	export let options: readonly (string | number)[];
-	export let optionsEnum: { [option: string | number]: string } = undefined;
-	export let optionSuffix: string = '';
+	export let commonProps: FilterProps;
+
+	const { allowValueReset, options, title, name, optionsEnum, optionSuffix } = commonProps;
 
 	// Unique prop
 	export let alignToLeft = false;
-
-	// Alter provided prop
-	if (allowValueReset) options = [undefined, ...options];
 
 	let expanded: boolean = false;
 
@@ -105,7 +101,7 @@
 			}`}
 		>
 			<form bind:this={dropdown}>
-				{#each options as option (option)}
+				{#each !allowValueReset ? options : [undefined, ...options] as option (option)}
 					<label
 						for={`${name}-${option}`}
 						class="block overflow-hidden first:rounded-t-md last:rounded-b-md"

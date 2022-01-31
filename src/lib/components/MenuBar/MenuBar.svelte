@@ -22,7 +22,7 @@
 		<div class="border-t border-gray-200 py-6">
 			<h2 id="filter-heading" class="sr-only">상세 검색</h2>
 			<div class="flex items-center justify-between">
-				<Dropdown bind:value={$selSort} {...sortProps} alignToLeft={true} />
+				<Dropdown bind:value={$selSort} commonProps={sortProps} alignToLeft={true} />
 
 				<!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
 				<button
@@ -37,9 +37,9 @@
 				</button>
 
 				<div class="hidden sm:flex sm:items-baseline sm:space-x-8">
-					<Dropdown bind:value={$selLanguage} {...languageProps} />
-					<Dropdown bind:value={$selTopic} {...topicProps} />
-					<Dropdown bind:value={$selLevel} {...levelProps} />
+					<Dropdown bind:value={$selLanguage} commonProps={languageProps} />
+					<Dropdown bind:value={$selTopic} commonProps={topicProps} />
+					<Dropdown bind:value={$selLevel} commonProps={levelProps} />
 				</div>
 			</div>
 		</div>

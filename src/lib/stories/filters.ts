@@ -7,7 +7,7 @@ import {
   topics,
 } from '$lib/stories/types';
 
-type FilterProps = {
+export type FilterProps = {
   allowValueReset?: boolean;
   title: string;
   name: string;
