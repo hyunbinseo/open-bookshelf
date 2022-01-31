@@ -2,14 +2,7 @@
 	import Container from '$lib/components/Container.svelte';
 	import Dropdown from '$lib/components/MenuBar/Dropdown.svelte';
 
-	import {
-		sortOptions,
-		sortOptionEnum,
-		languages,
-		languageEnum,
-		levels,
-		topics
-	} from '$lib/stories/types';
+	import { sortProps, languageProps, topicProps, levelProps } from '$lib/stories/filters';
 
 	import {
 		sidebarExpanded,
@@ -29,15 +22,7 @@
 		<div class="border-t border-gray-200 py-6">
 			<h2 id="filter-heading" class="sr-only">상세 검색</h2>
 			<div class="flex items-center justify-between">
-				<Dropdown
-					alignToLeft={true}
-					title="정렬"
-					name="sortOption"
-					options={sortOptions}
-					optionsEnum={sortOptionEnum}
-					optionSuffix=" 순"
-					bind:value={$selSort}
-				/>
+				<Dropdown bind:value={$selSort} {...sortProps} alignToLeft={true} />
 
 				<!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
 				<button
@@ -52,28 +37,9 @@
 				</button>
 
 				<div class="hidden sm:flex sm:items-baseline sm:space-x-8">
-					<Dropdown
-						title="언어"
-						name="language"
-						options={languages}
-						optionsEnum={languageEnum}
-						bind:value={$selLanguage}
-					/>
-					<Dropdown
-						allowValueReset={true}
-						title="주제"
-						name="topic"
-						options={topics}
-						bind:value={$selTopic}
-					/>
-					<Dropdown
-						allowValueReset={true}
-						title="단계"
-						name="level"
-						options={levels}
-						optionSuffix="단계"
-						bind:value={$selLevel}
-					/>
+					<Dropdown bind:value={$selLanguage} {...languageProps} />
+					<Dropdown bind:value={$selTopic} {...topicProps} />
+					<Dropdown bind:value={$selLevel} {...levelProps} />
 				</div>
 			</div>
 		</div>

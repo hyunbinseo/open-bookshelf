@@ -13,18 +13,23 @@
 
 	import focusLock from 'dom-focus-lock';
 
-	export let alignToLeft = false;
-	export let allowValueReset = false;
+	// Value prop - binds with store
+	export let value: string | number = undefined;
 
+	// Common prop
+	export let allowValueReset = false;
 	export let title: string;
 	export let name: string;
 	export let options: readonly (string | number)[];
-
 	export let optionsEnum: { [option: string | number]: string } = undefined;
 	export let optionSuffix: string = '';
-	export let value: string | number = undefined;
 
+	// Unique prop
+	export let alignToLeft = false;
+
+	// Alter provided prop
 	if (allowValueReset) options = [undefined, ...options];
+
 	let expanded: boolean = false;
 
 	onMount(() => {
