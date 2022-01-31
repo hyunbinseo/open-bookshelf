@@ -3,9 +3,10 @@
 
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
-	import Filters from '$lib/components/Filters.svelte';
+	import Filters from '$lib/components/MenuBar/MenuBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
+	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
 
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
@@ -30,6 +31,7 @@
 </script>
 
 <div class="bg-gray-50">
+	<Sidebar />
 	<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
 	<Filters />
 	<Container>

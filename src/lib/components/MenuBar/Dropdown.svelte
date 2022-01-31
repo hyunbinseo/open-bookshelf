@@ -13,18 +13,23 @@
 
 	import focusLock from 'dom-focus-lock';
 
+	import Badge from '$lib/components/MenuBar/Badge.svelte';
+
+	import { generateOptionText } from '$lib/stories/filters';
+
+	import type { Option, FilterProps } from '$lib/stories/filters';
+
+	// Value prop - binds with store
+	export let value: Option = undefined;
+
+	// Common prop
+	export let commonProps: FilterProps;
+
+	const { allowValueReset, options, title, name } = commonProps;
+
+	// Unique prop
 	export let alignToLeft = false;
-	export let allowValueReset = false;
 
-	export let title: string;
-	export let name: string;
-	export let options: readonly (string | number)[];
-
-	export let optionsEnum: { [option: string | number]: string } = undefined;
-	export let optionSuffix: string = '';
-	export let value: string | number = undefined;
-
-	if (allowValueReset) options = [undefined, ...options];
 	let expanded: boolean = false;
 
 	onMount(() => {
@@ -67,13 +72,7 @@
 			}}
 		>
 			<span>{title}</span>
-			{#if value}
-				<span
-					class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700"
-				>
-					{optionsEnum ? optionsEnum[value] : value}
-				</span>
-			{/if}
+			<Badge {value} {commonProps} />
 			<!-- Heroicon name: solid/chevron-down -->
 			<svg
 				class={`-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500 ${
@@ -100,17 +99,17 @@
 			}`}
 		>
 			<form bind:this={dropdown}>
-				{#each options as option (option)}
+				{#each !allowValueReset ? options : [undefined, ...options] as option (option)}
 					<label
 						for={`${name}-${option}`}
 						class="block overflow-hidden first:rounded-t-md last:rounded-b-md"
 					>
 						<input
-							{name}
 							type="radio"
+							bind:group={value}
+							{name}
 							value={option}
 							id={`${name}-${option}`}
-							bind:group={value}
 							on:click={() => {
 								handleDropdown(false);
 								if (option !== value) {
@@ -122,7 +121,7 @@
 						<p
 							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900 peer-focus:bg-indigo-200 peer-focus:text-indigo-900"
 						>
-							{!option ? '모두' : `${optionsEnum?.[option] || option}${optionSuffix}`}
+							{generateOptionText(option, commonProps)}
 						</p>
 					</label>
 				{/each}
