@@ -28,6 +28,8 @@
 		});
 	});
 
+	let button: HTMLElement;
+
 	let scrollY: number;
 </script>
 
@@ -36,6 +38,7 @@
 <div class="border-t border-gray-200 px-4 py-6">
 	<h3 class="-mx-2 -my-3 flow-root">
 		<button
+			bind:this={button}
 			type="button"
 			class="flex w-full items-center justify-between bg-white px-2 py-3 text-sm text-gray-400"
 			aria-expanded={expanded}
@@ -85,6 +88,7 @@
 							value={option}
 							id={`${name}-${option}-@sidebar`}
 							on:click={() => {
+								button.focus();
 								expanded = false;
 							}}
 							on:input={() => {
