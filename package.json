@@ -1,6 +1,5 @@
 {
   "name": "dooru-library-website",
-  "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
