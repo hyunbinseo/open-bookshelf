@@ -109,7 +109,9 @@
 							{name}
 							value={option}
 							id={`${name}-${option}`}
-							on:click={() => {
+							on:click={async () => {
+								// Await bind:group to update before element removal
+								await new Promise((resolve) => setTimeout(resolve, 0));
 								handleDropdown(false);
 							}}
 							on:input={() => {
