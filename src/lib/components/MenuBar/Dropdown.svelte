@@ -115,7 +115,9 @@
 							id={`${name}-${option}`}
 							on:click={() => {
 								handleDropdown(false);
-								if (option !== value) scrollY = 0;
+							}}
+							on:input={() => {
+								scrollY = 0;
 							}}
 							class="peer sr-only"
 						/>

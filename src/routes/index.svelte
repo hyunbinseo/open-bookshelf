@@ -29,11 +29,7 @@
 
 		isLoaded.set(true);
 	});
-
-	let scrollY: number;
 </script>
-
-<svelte:window bind:scrollY />
 
 <div class="flex flex-1 flex-col bg-gray-50">
 	<Sidebar />
