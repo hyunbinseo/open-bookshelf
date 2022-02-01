@@ -18,16 +18,11 @@
 
 	import type { Option, FilterProps } from '$lib/stories/filters';
 
-	// Value prop - binds with store
+	export let alignToLeft = false;
 	export let value: Option = undefined;
-
-	// Common prop
 	export let commonProps: FilterProps;
 
 	const { allowValueReset, options, title, name } = commonProps;
-
-	// Unique prop
-	export let alignToLeft = false;
 
 	let expanded: boolean = false;
 
@@ -37,21 +32,24 @@
 		});
 	});
 
-	let scrollY: number;
 	let button: HTMLElement;
 	let dropdown: HTMLElement;
 
 	const handleDropdown = async (expand: boolean) => {
 		if (expand) collapseAllDropdown();
-		expanded = expand;
-		if (expanded) {
-			await tick(); // Wait for dropdown element to be created
-			focusLock.on(dropdown);
-		} else {
+		if (!expand) {
+			// Remove lock before element removal
 			focusLock.off(dropdown);
 			button.focus();
 		}
+
+		expanded = expand;
+		await tick(); // Await element creation or removal
+
+		if (expanded) focusLock.on(dropdown);
 	};
+
+	let scrollY: number;
 </script>
 
 <svelte:window

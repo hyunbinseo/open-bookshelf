@@ -15,10 +15,7 @@
 
 	import type { Option, FilterProps } from '$lib/stories/filters';
 
-	// Value prop - binds with store
 	export let value: Option = undefined;
-
-	// Common prop
 	export let commonProps: FilterProps;
 
 	const { allowValueReset, options, title, name } = commonProps;
