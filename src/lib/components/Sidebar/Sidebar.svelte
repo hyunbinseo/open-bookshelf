@@ -17,13 +17,13 @@
 {#if $sidebarState}
 	<div
 		bind:this={$sidebarEl}
-		class="fixed inset-0 z-40 flex sm:hidden"
+		class="fixed inset-0 z-40 flex min-h-screen sm:hidden"
 		role="dialog"
 		aria-modal="true"
 	>
 		<div
 			transition:fade
-			class="fixed inset-0 bg-black bg-opacity-50"
+			class="fixed inset-0 min-h-screen bg-black bg-opacity-50"
 			aria-hidden="true"
 			on:click={() => {
 				sidebarState.collapse();
