@@ -6,8 +6,8 @@
 	import { sortProps, languageProps, topicProps, levelProps } from '$lib/stories/filters';
 
 	import {
-		sidebarExpanded,
-		sidebarToggle,
+		sidebarToggleEl,
+		sidebarState,
 		selLanguage,
 		selLevel,
 		selTopic,
@@ -27,11 +27,11 @@
 
 				<!-- Mobile filter dialog toggle, controls the 'mobileFilterDialogOpen' state. -->
 				<button
-					bind:this={$sidebarToggle}
+					bind:this={$sidebarToggleEl}
 					type="button"
-					class="inline-block rounded-sm text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:hidden"
+					class="inline-block rounded-sm text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden"
 					on:click={() => {
-						sidebarExpanded.set(true);
+						sidebarState.expand();
 					}}
 				>
 					상세 검색

@@ -1,4 +1,7 @@
+import { tick } from 'svelte';
 import { writable, derived } from 'svelte/store';
+
+import focusLock from 'dom-focus-lock';
 
 import stories from '$lib/stories/data';
 
@@ -11,8 +14,30 @@ export const selLanguage = writable<Language>('ko-kr');
 export const selLevel = writable<Level | undefined>();
 export const selTopic = writable<Topic | undefined>();
 
-export const sidebarToggle = writable<HTMLElement>();
-export const sidebarExpanded = writable<boolean>(false);
+export const sidebarEl = writable<HTMLElement>();
+export const sidebarToggleEl = writable<HTMLElement>();
+export const sidebarState = (() => {
+  const { subscribe, set } = writable<boolean>(false);
+  return {
+    subscribe,
+    expand: async () => {
+      set(true);
+      await tick();
+      sidebarEl.subscribe((el) => {
+        if (el) focusLock.on(el);
+      });
+    },
+    collapse: () => {
+      sidebarEl.subscribe((el) => {
+        if (el) focusLock.off(el);
+      });
+      set(false);
+      sidebarToggleEl.subscribe((el) => {
+        el?.focus();
+      });
+    },
+  };
+})();
 
 export const reqStories = derived(
   [isLoaded, selSort, selLanguage, selLevel, selTopic],

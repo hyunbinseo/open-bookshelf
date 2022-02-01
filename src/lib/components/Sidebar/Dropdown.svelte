@@ -93,7 +93,7 @@
 							on:input={() => {
 								scrollY = 0;
 							}}
-							class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+							class="h-4 w-4 rounded border-gray-300 text-indigo-600"
 						/>
 						<label for={`${name}-${option}-@sidebar`} class="ml-3 text-sm text-gray-500">
 							{generateOptionText(option, commonProps)}
