@@ -21,9 +21,10 @@
 		role="dialog"
 		aria-modal="true"
 	>
+		<!-- .touch-none required for body.overflow-hidden in iOS Safari -->
 		<div
 			transition:fade
-			class="fixed inset-0 min-h-screen bg-black bg-opacity-50"
+			class="fixed inset-0 min-h-screen touch-none bg-black bg-opacity-50"
 			aria-hidden="true"
 			on:click={() => {
 				sidebarState.collapse();
