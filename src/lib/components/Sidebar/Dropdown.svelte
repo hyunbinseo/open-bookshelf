@@ -40,7 +40,7 @@
 		<button
 			bind:this={button}
 			type="button"
-			class="flex w-full items-center justify-between bg-white px-2 py-3 text-sm text-gray-400"
+			class="flex w-full items-center justify-between overflow-hidden bg-white px-2 py-3 text-sm text-gray-400"
 			aria-expanded={expanded}
 			on:click={() => {
 				const isExpanded = expanded;
