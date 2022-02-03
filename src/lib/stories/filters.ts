@@ -42,7 +42,7 @@ export const topicProps: FilterProps = {
 
 export const levelProps: FilterProps = {
   allowValueReset: true,
-  title: '단계',
+  title: '수준',
   name: 'level',
   options: levels,
   optionSuffix: '단계',
