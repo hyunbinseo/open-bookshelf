@@ -105,17 +105,13 @@
 					>
 						<input
 							type="radio"
-							bind:group={value}
 							{name}
 							value={option}
 							id={`${name}-${option}`}
-							on:click={async () => {
-								// Await bind:group to update before element removal
-								await new Promise((resolve) => setTimeout(resolve, 0));
-								handleDropdown(false);
-							}}
-							on:input={() => {
+							bind:group={value}
+							on:change={() => {
 								scrollY = 0;
+								handleDropdown(false);
 							}}
 							class="peer sr-only"
 						/>

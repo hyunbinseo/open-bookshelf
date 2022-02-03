@@ -83,7 +83,6 @@
 					<div class="flex items-center">
 						<input
 							type="radio"
-							bind:group={value}
 							name={`${name}-@sidebar`}
 							value={option}
 							id={`${name}-${option}-@sidebar`}
@@ -91,7 +90,8 @@
 								button.focus();
 								expanded = false;
 							}}
-							on:input={() => {
+							bind:group={value}
+							on:change={() => {
 								scrollY = 0;
 							}}
 							class="h-4 w-4 rounded border-gray-300 text-indigo-600"
