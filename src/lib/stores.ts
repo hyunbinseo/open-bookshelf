@@ -21,6 +21,7 @@ export const sidebarState = (() => {
   return {
     subscribe,
     expand: async () => {
+      document.body.classList.add('overflow-hidden');
       set(true);
       await tick();
       sidebarEl.subscribe((el) => {
@@ -28,6 +29,7 @@ export const sidebarState = (() => {
       });
     },
     collapse: () => {
+      document.body.classList.remove('overflow-hidden');
       sidebarEl.subscribe((el) => {
         if (el) focusLock.off(el);
       });
