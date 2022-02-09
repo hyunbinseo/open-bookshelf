@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, tick } from 'svelte';
 
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
@@ -20,7 +20,7 @@
 		urlSearchParams
 	} from '$lib/stores';
 
-	onMount(() => {
+	onMount(async () => {
 		const { searchParams } = new URL(document.URL);
 
 		const reqLanguage = searchParams.get('language');
@@ -33,6 +33,13 @@
 		if (isLevel(reqLevel)) selLevel.set(reqLevel);
 
 		isLoaded.set(true);
+
+		/*
+		 * Scroll to top on page refresh using client-side router
+		 * Reference https://github.com/sveltejs/sapper/issues/784
+		 */
+		await tick();
+		window.scroll({ top: 0 });
 	});
 
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
