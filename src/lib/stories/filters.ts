@@ -5,6 +5,7 @@ import {
   languageEnum,
   levels,
   topics,
+  topicEnum,
 } from '$lib/stories/types';
 
 export type Option = string | number;
@@ -38,6 +39,7 @@ export const topicProps: FilterProps = {
   title: '주제',
   name: 'topic',
   options: topics,
+  optionsEnum: topicEnum,
 };
 
 export const levelProps: FilterProps = {

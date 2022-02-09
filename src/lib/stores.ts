@@ -5,6 +5,8 @@ import focusLock from 'dom-focus-lock';
 
 import stories from '$lib/stories/data';
 
+import { topicEnum } from '$lib/stories/types';
+
 import type { SortOption, Language, Level, Topic, Story } from '$lib/stories/types';
 
 export const isLoaded = writable<boolean>(false);
@@ -49,7 +51,7 @@ export const reqStories = derived(
     const filtered = stories
       .filter(({ language }) => language === $selLanguage)
       .filter(({ level }) => ($selLevel ? level === $selLevel : true))
-      .filter(({ topics }) => ($selTopic ? topics.has($selTopic) : true));
+      .filter(({ topics }) => ($selTopic ? topics.has(topicEnum[$selTopic]) : true));
 
     // Data is currently sorted by story number
     if ($selSort === 'number') return filtered;

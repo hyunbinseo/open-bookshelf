@@ -34,16 +34,28 @@ export type Level = typeof levels[number];
 export const isLevel = (value: number): value is Level => levels.includes(value as Level);
 
 export const topics = [
-  '과학',
-  '동물',
-  '모험',
-  '생활',
-  '역사',
-  '음식',
-  '자연',
+  'adventure',
+  'animal',
+  'food',
+  'history',
+  'life',
+  'nature',
+  'science',
 ] as const;
 
 export type Topic = typeof topics[number];
+
+export const topicEnum: { [key in Topic]: string; } = {
+  adventure: '모험',
+  animal: '동물',
+  food: '음식',
+  history: '역사',
+  life: '생활',
+  nature: '자연',
+  science: '과학',
+};
+
+export type TopicKR = typeof topicEnum[Topic];
 
 export const isTopic = (value: string): value is Topic => topics.includes(value as Topic);
 
@@ -53,5 +65,5 @@ export type Story = {
   number: number;
   language: Language;
   title: string;
-  topics: Set<Topic>;
+  topics: Set<TopicKR>;
 };
