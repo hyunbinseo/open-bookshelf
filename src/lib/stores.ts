@@ -64,3 +64,14 @@ export const reqStories = derived(
     return filtered;
   },
 );
+
+export const urlSearchParams = derived(
+  [selLanguage, selLevel, selTopic],
+  ([$selLanguage, $selLevel, $selTopic]) => {
+    const params = new URLSearchParams();
+    if ($selLanguage) params.append('language', $selLanguage);
+    if ($selTopic) params.append('topic', $selTopic);
+    if ($selLevel) params.append('level', $selLevel.toString());
+    return params.toString();
+  },
+);
