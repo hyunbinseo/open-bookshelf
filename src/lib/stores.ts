@@ -5,7 +5,9 @@ import focusLock from 'dom-focus-lock';
 
 import stories from '$lib/stories/data';
 
-import type { SortOption, Language, Level, Topic } from '$lib/stories/types';
+import { topicEnum } from '$lib/stories/types';
+
+import type { SortOption, Language, Level, Topic, Story } from '$lib/stories/types';
 
 export const isLoaded = writable<boolean>(false);
 
@@ -43,13 +45,13 @@ export const sidebarState = (() => {
 
 export const reqStories = derived(
   [isLoaded, selSort, selLanguage, selLevel, selTopic],
-  ([$isLoaded, $selSort, $selLanguage, $selLevel, $selTopic]) => {
+  ([$isLoaded, $selSort, $selLanguage, $selLevel, $selTopic]): Story[] => {
     if (!$isLoaded) return [];
 
     const filtered = stories
       .filter(({ language }) => language === $selLanguage)
       .filter(({ level }) => ($selLevel ? level === $selLevel : true))
-      .filter(({ topics }) => ($selTopic ? topics.has($selTopic) : true));
+      .filter(({ topics }) => ($selTopic ? topics.has(topicEnum[$selTopic]) : true));
 
     // Data is currently sorted by story number
     if ($selSort === 'number') return filtered;
@@ -62,5 +64,16 @@ export const reqStories = derived(
       });
 
     return filtered;
+  },
+);
+
+export const urlSearchParams = derived(
+  [selLanguage, selLevel, selTopic],
+  ([$selLanguage, $selLevel, $selTopic]) => {
+    const params = new URLSearchParams();
+    if ($selLanguage) params.append('language', $selLanguage);
+    if ($selTopic) params.append('topic', $selTopic);
+    if ($selLevel) params.append('level', $selLevel.toString());
+    return params.toString();
   },
 );

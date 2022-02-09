@@ -3,6 +3,7 @@
 
 	import type { Story } from '$lib/stories/types';
 
+	export let lazilyLoadImg = false;
 	export let story: Story;
 
 	const generateImgSrc = (extension: 'webp' | 'jpg') =>
@@ -25,7 +26,7 @@
 				src={generateImgSrc('jpg')}
 				alt={`${story.title} 표지`}
 				class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-125"
-				loading="lazy"
+				loading={lazilyLoadImg ? 'lazy' : null}
 				width="640"
 				height="360"
 			/>

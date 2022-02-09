@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	import { browser } from '$app/env';
+
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
 	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
@@ -11,7 +13,14 @@
 
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
-	import { isLoaded, selLanguage, selLevel, selTopic, reqStories } from '$lib/stores';
+	import {
+		isLoaded,
+		selLanguage,
+		selLevel,
+		selTopic,
+		reqStories,
+		urlSearchParams
+	} from '$lib/stores';
 
 	onMount(() => {
 		const { searchParams } = new URL(document.URL);
@@ -25,10 +34,10 @@
 		const reqLevel = Number(searchParams.get('level'));
 		if (isLevel(reqLevel)) selLevel.set(reqLevel);
 
-		history.replaceState(null, '', '/');
-
 		isLoaded.set(true);
 	});
+
+	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
 </script>
 
 <div class="flex flex-1 flex-col bg-gray-50">
@@ -62,8 +71,8 @@
 				</button>
 			{:else}
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-					{#each $reqStories as story (story.id)}
-						<Card {story} />
+					{#each $reqStories as story, index (story.id)}
+						<Card {story} lazilyLoadImg={Boolean(index + 1 > 8)} />
 					{/each}
 				</div>
 				<p class="pt-16 text-center lg:hidden">목록의 끝입니다.</p>
