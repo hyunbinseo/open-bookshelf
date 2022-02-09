@@ -62,8 +62,8 @@
 				</button>
 			{:else}
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-					{#each $reqStories as story (story.id)}
-						<Card {story} />
+					{#each $reqStories as story, index (story.id)}
+						<Card {story} lazilyLoadImg={Boolean(index + 1 > 8)} />
 					{/each}
 				</div>
 				<p class="pt-16 text-center lg:hidden">목록의 끝입니다.</p>
