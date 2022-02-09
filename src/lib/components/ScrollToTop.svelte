@@ -1,10 +1,6 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-
-	let scrollY: number;
 </script>
-
-<svelte:window bind:scrollY />
 
 <div transition:fly={{ y: 50 }} class="sticky bottom-10 mx-auto">
 	<button
@@ -12,7 +8,7 @@
 		class="inline-flex items-center rounded-full border border-transparent bg-gray-600 p-3 text-white transition duration-300 hover:bg-gray-700"
 		style="box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px, rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px;"
 		on:click={() => {
-			scrollY = 0;
+			window.scroll({ top: 0 });
 		}}
 	>
 		<!-- Heroicon name: outline/chevron-up -->
