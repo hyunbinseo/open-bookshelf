@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, tick } from 'svelte';
+	import { onMount } from 'svelte';
 
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
@@ -44,51 +44,45 @@
 		if (isLevel(reqLevel)) selLevel.set(reqLevel);
 
 		isLoaded.set(true);
-
-		/*
-		 * Scroll to top on page refresh using client-side router
-		 * Reference https://github.com/sveltejs/sapper/issues/784
-		 */
-		await tick();
-		window.scroll({ top: 0 });
 	});
 
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
 </script>
 
-<div class="flex flex-1 flex-col bg-gray-50 pb-16">
+<div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
 	<div bind:this={header}>
 		<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
 	</div>
-	{#if $isLoaded}
+
+	{#if $reqStories.length}
 		<Filters />
 	{/if}
-	<section aria-labelledby="stories-heading" class="mt-2 flex-1 pb-16">
+	<section aria-labelledby="stories-heading" class="mt-2 flex-1 pb-12">
 		<h2 id="stories-heading" class="sr-only">이야기 목록</h2>
 		<Container isFullHeight={true}>
 			{#if !$reqStories.length}
-				<button
-					type="button"
-					class="relative block h-full w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400"
-					disabled={!$isLoaded}
-					on:click={() => {
-						collapseAllDropdown();
-						selTopic.set(undefined);
-						selLevel.set(undefined);
-					}}
-				>
+				<div class="relative block flex h-full w-full flex-col justify-center text-center">
 					{#if !$isLoaded}
-						<h3 class="text-lg font-medium leading-6 text-gray-900">책을 찾고 있습니다.</h3>
-						<p class="mt-2 text-xs text-gray-500">불러와지지 않으면 꼬리말의 링크를 사용합니다.</p>
+						<h3 class="animate-pulse text-lg font-medium leading-6 text-gray-900">
+							책을 찾고 있습니다.
+						</h3>
 					{:else}
 						<h3 class="text-lg font-medium leading-6 text-gray-900">책을 찾을 수 없습니다.</h3>
-						<p class="mt-2 text-sm text-indigo-500">
+						<button
+							type="button"
+							class="mt-2 text-base text-indigo-500"
+							on:click={() => {
+								collapseAllDropdown();
+								selTopic.set(undefined);
+								selLevel.set(undefined);
+							}}
+						>
 							상세 검색 조건 초기화
 							<span aria-hidden="true">&rarr;</span>
-						</p>
+						</button>
 					{/if}
-				</button>
+				</div>
 			{:else}
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 					{#each $reqStories as story, index (story.id)}
@@ -98,7 +92,7 @@
 			{/if}
 		</Container>
 	</section>
-	{#if $isLoaded && !headerIsVisible}
+	{#if !headerIsVisible}
 		<ScrollToTop />
 	{/if}
 </div>
