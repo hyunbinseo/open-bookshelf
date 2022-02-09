@@ -5,7 +5,7 @@ import focusLock from 'dom-focus-lock';
 
 import stories from '$lib/stories/data';
 
-import type { SortOption, Language, Level, Topic } from '$lib/stories/types';
+import type { SortOption, Language, Level, Topic, Story } from '$lib/stories/types';
 
 export const isLoaded = writable<boolean>(false);
 
@@ -43,7 +43,7 @@ export const sidebarState = (() => {
 
 export const reqStories = derived(
   [isLoaded, selSort, selLanguage, selLevel, selTopic],
-  ([$isLoaded, $selSort, $selLanguage, $selLevel, $selTopic]) => {
+  ([$isLoaded, $selSort, $selLanguage, $selLevel, $selTopic]): Story[] => {
     if (!$isLoaded) return [];
 
     const filtered = stories
