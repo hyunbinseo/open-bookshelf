@@ -16,6 +16,7 @@
 
 {#if $sidebarState}
 	<div
+		transition:fade={{ duration: 300 }}
 		bind:this={$sidebarEl}
 		class="fixed inset-0 z-40 flex min-h-screen sm:hidden"
 		role="dialog"
@@ -23,7 +24,6 @@
 	>
 		<!-- .touch-none required for body.overflow-hidden in iOS Safari -->
 		<div
-			transition:fade
 			class="fixed inset-0 min-h-screen touch-none bg-black bg-opacity-50"
 			aria-hidden="true"
 			on:click={() => {
@@ -31,7 +31,7 @@
 			}}
 		/>
 		<div
-			transition:fly={{ x: 350, duration: 600, opacity: 1 }}
+			transition:fly={{ x: 300, duration: 600, opacity: 1 }}
 			class="relative ml-auto flex h-full w-3/5 min-w-fit max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl"
 		>
 			<div class="flex items-center justify-between px-4">
