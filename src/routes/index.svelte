@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import { browser } from '$app/env';
-
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
 	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
@@ -43,7 +41,9 @@
 <div class="flex flex-1 flex-col bg-gray-50">
 	<Sidebar />
 	<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
-	<Filters />
+	{#if $isLoaded}
+		<Filters />
+	{/if}
 	<section aria-labelledby="stories-heading" class="mt-2 flex-1 pb-16">
 		<h2 id="stories-heading" class="sr-only">이야기 목록</h2>
 		<Container isFullHeight={true}>

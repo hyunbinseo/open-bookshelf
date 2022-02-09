@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
+
 	import Container from '$lib/components/Container.svelte';
 	import Badge from '$lib/components/MenuBar/Badge.svelte';
 	import Dropdown from '$lib/components/MenuBar/Dropdown.svelte';
@@ -16,6 +18,7 @@
 </script>
 
 <section
+	transition:slide={{ duration: 600 }}
 	aria-labelledby="filter-heading"
 	class="sticky top-0 z-10 bg-gray-50 bg-opacity-90 backdrop-blur-sm"
 >
