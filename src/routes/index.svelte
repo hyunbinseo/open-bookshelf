@@ -8,6 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
+	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
@@ -20,7 +21,17 @@
 		urlSearchParams
 	} from '$lib/stores';
 
+	let header: HTMLElement;
+	let headerIsVisible = true;
+
 	onMount(async () => {
+		const observer = new IntersectionObserver((entries) => {
+			const [{ isIntersecting }] = entries;
+			headerIsVisible = isIntersecting;
+		});
+
+		observer.observe(header);
+
 		const { searchParams } = new URL(document.URL);
 
 		const reqLanguage = searchParams.get('language');
@@ -45,9 +56,11 @@
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
 </script>
 
-<div class="flex flex-1 flex-col bg-gray-50">
+<div class="flex flex-1 flex-col bg-gray-50 pb-16">
 	<Sidebar />
-	<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
+	<div bind:this={header}>
+		<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
+	</div>
 	{#if $isLoaded}
 		<Filters />
 	{/if}
@@ -82,10 +95,12 @@
 						<Card {story} lazilyLoadImg={Boolean(index + 1 > 8)} />
 					{/each}
 				</div>
-				<p class="pt-16 text-center lg:hidden">목록의 끝입니다.</p>
 			{/if}
 		</Container>
 	</section>
+	{#if $isLoaded && !headerIsVisible}
+		<ScrollToTop />
+	{/if}
 </div>
 <Footer>
 	<a
