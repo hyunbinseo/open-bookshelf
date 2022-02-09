@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	import { browser } from '$app/env';
-
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
 	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
@@ -10,6 +8,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
+	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
@@ -22,7 +21,17 @@
 		urlSearchParams
 	} from '$lib/stores';
 
-	onMount(() => {
+	let header: HTMLElement;
+	let headerIsVisible = true;
+
+	onMount(async () => {
+		const observer = new IntersectionObserver((entries) => {
+			const [{ isIntersecting }] = entries;
+			headerIsVisible = isIntersecting;
+		});
+
+		observer.observe(header);
+
 		const { searchParams } = new URL(document.URL);
 
 		const reqLanguage = searchParams.get('language');
@@ -40,45 +49,52 @@
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
 </script>
 
-<div class="flex flex-1 flex-col bg-gray-50">
+<div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
-	<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
-	<Filters />
-	<section aria-labelledby="stories-heading" class="mt-2 flex-1 pb-16">
+	<div bind:this={header}>
+		<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
+	</div>
+
+	{#if $reqStories.length}
+		<Filters />
+	{/if}
+	<section aria-labelledby="stories-heading" class="mt-2 flex-1 pb-12">
 		<h2 id="stories-heading" class="sr-only">이야기 목록</h2>
 		<Container isFullHeight={true}>
 			{#if !$reqStories.length}
-				<button
-					type="button"
-					class="relative block h-full w-full rounded-lg border-2 border-dashed border-gray-300 p-12 text-center hover:border-gray-400"
-					disabled={!$isLoaded}
-					on:click={() => {
-						collapseAllDropdown();
-						selTopic.set(undefined);
-						selLevel.set(undefined);
-					}}
-				>
+				<div class="relative block flex h-full w-full flex-col justify-center text-center">
 					{#if !$isLoaded}
-						<h3 class="text-lg font-medium leading-6 text-gray-900">책을 찾고 있습니다.</h3>
-						<p class="mt-2 text-xs text-gray-500">불러와지지 않으면 꼬리말의 링크를 사용합니다.</p>
+						<h3 class="animate-pulse text-lg font-medium leading-6 text-gray-900">
+							책을 찾고 있습니다.
+						</h3>
 					{:else}
 						<h3 class="text-lg font-medium leading-6 text-gray-900">책을 찾을 수 없습니다.</h3>
-						<p class="mt-2 text-sm text-indigo-500">
+						<button
+							type="button"
+							class="mt-2 text-base text-indigo-500"
+							on:click={() => {
+								collapseAllDropdown();
+								selTopic.set(undefined);
+								selLevel.set(undefined);
+							}}
+						>
 							상세 검색 조건 초기화
 							<span aria-hidden="true">&rarr;</span>
-						</p>
+						</button>
 					{/if}
-				</button>
+				</div>
 			{:else}
 				<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
 					{#each $reqStories as story, index (story.id)}
 						<Card {story} lazilyLoadImg={Boolean(index + 1 > 8)} />
 					{/each}
 				</div>
-				<p class="pt-16 text-center lg:hidden">목록의 끝입니다.</p>
 			{/if}
 		</Container>
 	</section>
+	{#if !headerIsVisible}
+		<ScrollToTop />
+	{/if}
 </div>
 <Footer>
 	<a
