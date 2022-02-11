@@ -1,7 +1,8 @@
 <script lang="ts">
 	const { VITE_CDN_URL } = import.meta.env;
 
-	import '$lib/tailwind.css';
+	import '$lib/styles/pretendard.css';
+	import '$lib/styles/tailwind.css';
 
 	import stories from '$lib/stories/data';
 

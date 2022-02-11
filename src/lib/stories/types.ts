@@ -1,10 +1,11 @@
-export const sortOptions = ['number', 'abc'] as const;
+export const sortOptions = ['random', 'abc', 'number'] as const;
 
 export type SortOption = typeof sortOptions[number];
 
 export const sortOptionEnum: { [key in SortOption]: string } = {
-  number: '번호',
+  random: '무작위',
   abc: '가나다',
+  number: '번호',
 };
 
 export const languages = [
