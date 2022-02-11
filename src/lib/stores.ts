@@ -11,7 +11,7 @@ import type { SortOption, Language, Level, Topic, Story } from '$lib/stories/typ
 
 export const isLoaded = writable<boolean>(false);
 
-export const selSort = writable<SortOption>('number');
+export const selSort = writable<SortOption>('random');
 export const selLanguage = writable<Language>('ko-kr');
 export const selLevel = writable<Level | undefined>();
 export const selTopic = writable<Topic | undefined>();
@@ -62,6 +62,11 @@ export const reqStories = derived(
         if (titleA > titleB) return 1;
         return 0;
       });
+
+    if ($selSort === 'random') return filtered
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => (a.sort - b.sort))
+      .map(({ value }) => (value));
 
     return filtered;
   },
