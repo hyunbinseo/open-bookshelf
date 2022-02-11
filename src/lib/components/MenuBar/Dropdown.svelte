@@ -116,7 +116,7 @@
 							class="peer sr-only"
 						/>
 						<p
-							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900"
+							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 hover:cursor-pointer hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900 hover:peer-checked:cursor-default"
 						>
 							{generateOptionText(option, commonProps)}
 						</p>
