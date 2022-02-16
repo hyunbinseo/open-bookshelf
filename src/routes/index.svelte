@@ -24,6 +24,8 @@
 	let header: HTMLElement;
 	let headerIsVisible = true;
 
+	let visitorCount = 0;
+
 	onMount(async () => {
 		const observer = new IntersectionObserver((entries) => {
 			const [{ isIntersecting }] = entries;
@@ -44,6 +46,12 @@
 		if (isLevel(reqLevel)) selLevel.set(reqLevel);
 
 		isLoaded.set(true);
+
+		const { value } = await (
+			await fetch('https://api.countapi.xyz/hit/bookshelf.hyunbin.page/')
+		).json();
+
+		visitorCount = value;
 	});
 
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
@@ -51,6 +59,15 @@
 
 <div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
+	<div class="flex h-10 bg-gray-900 text-sm text-white">
+		<span class="m-auto">
+			모든 책의 저작권은 <a
+				href="http://xn--hu1b40go5ck8x.com/help.php"
+				target="_blank"
+				rel="noopener">두루책방</a
+			>에 있습니다.
+		</span>
+	</div>
 	<div bind:this={header}>
 		<Header heading="열린 책장" paragraph="읽고 싶은 책을 찾아볼까요?" />
 	</div>
@@ -97,12 +114,16 @@
 	{/if}
 </div>
 <Footer>
-	<a
-		href="http://xn--hu1b40go5ck8x.com/"
-		class="underline underline-offset-2"
-		target="_blank"
-		rel="noopener">두루책방</a
-	>의 저작자는 도서문화재단씨앗과 에누마입니다.
+	<Container>
+		<div class="text-center lg:flex lg:items-center lg:justify-between">
+			{#if visitorCount}
+				<p class="mb-3 text-sm text-gray-500">{visitorCount}번째 방문자님, 반갑습니다.</p>
+			{/if}
+			<p class="text-sm text-gray-500">
+				열린 책장 <a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트 소개</a>
+			</p>
+		</div>
+	</Container>
 </Footer>
 
 <style>
