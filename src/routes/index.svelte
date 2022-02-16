@@ -52,7 +52,7 @@
 <div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
 	<div bind:this={header}>
-		<Header heading="두루책방" paragraph="찾아줘서 고마워요! 읽고 싶은 책을 찾아볼까요?" />
+		<Header heading="열린 책장" paragraph="읽고 싶은 책을 찾아볼까요?" />
 	</div>
 
 	{#if $reqStories.length}
