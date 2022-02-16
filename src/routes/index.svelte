@@ -104,3 +104,10 @@
 		rel="noopener">두루책방</a
 	>의 저작자는 도서문화재단씨앗과 에누마입니다.
 </Footer>
+
+<style>
+	a {
+		text-decoration-line: underline;
+		text-underline-offset: 2px;
+	}
+</style>
