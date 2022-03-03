@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "1.0.0-next.28",
-    "@sveltejs/kit": "1.0.0-next.265",
+    "@sveltejs/kit": "1.0.0-next.291",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
