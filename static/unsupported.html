@@ -8,7 +8,10 @@
   <meta name="robots" content="noindex">
 </head>
 
-<body>
+<body onload="openInEdge()">
+  <script>
+    function openInEdge() { window.location.href = 'microsoft-edge:' + window.location.origin; }
+  </script>
   <h1>호환되지 않는 웹 브라우저입니다.</h1>
   <p>아래 웹 브라우저에 최적화되어 있습니다. (가나다순)</p>
   <ul>
