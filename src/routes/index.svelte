@@ -114,16 +114,14 @@
 	{/if}
 </div>
 <Footer>
-	<Container>
-		<div class="text-center lg:flex lg:items-center lg:justify-between">
-			{#if visitorCount}
-				<p class="mb-3 text-sm text-gray-500">{visitorCount}번째 방문자님, 반갑습니다.</p>
-			{/if}
-			<p class="text-sm text-gray-500">
-				열린 책장 <a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트 소개</a>
-			</p>
-		</div>
-	</Container>
+	<div class="text-center lg:flex lg:items-center lg:justify-between">
+		{#if visitorCount}
+			<p class="mb-3 text-sm text-gray-500">{visitorCount}번째 방문자님, 반갑습니다.</p>
+		{/if}
+		<p class="text-sm text-gray-500">
+			열린 책장 <a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트 소개</a>
+		</p>
+	</div>
 </Footer>
 
 <style>
