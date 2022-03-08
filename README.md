@@ -14,4 +14,5 @@
 
 ### 비고
 
+- [목록](oss-notice.md)의 오픈소스 라이브러리를 활용해 제작되었습니다.
 - 오류 제보 및 제안 사항 건의는 [깃허브 이슈](https://github.com/hyunbinseo/open-bookshelf/issues)에 남겨주세요.
