@@ -1,7 +1,7 @@
 # OSS Notice
 
-- [@sveltejs/adapter-static@1.0.0-next.28](https://github.com/sveltejs/kit) - MIT
-- [@sveltejs/kit@1.0.0-next.291](https://github.com/sveltejs/kit) - MIT
+- [@sveltejs/adapter-static@1.0.0-next.29](https://github.com/sveltejs/kit) - MIT
+- [@sveltejs/kit@1.0.0-next.294](https://github.com/sveltejs/kit) - MIT
 - [@tailwindcss/aspect-ratio@0.4.0](https://github.com/tailwindlabs/tailwindcss-aspect-ratio) - MIT
 - [@typescript-eslint/eslint-plugin@4.33.0](https://github.com/typescript-eslint/typescript-eslint) - MIT
 - [@typescript-eslint/parser@4.33.0](https://github.com/typescript-eslint/typescript-eslint) - BSD-2-Clause

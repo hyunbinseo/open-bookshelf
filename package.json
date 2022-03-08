@@ -12,8 +12,8 @@
     "postinstall": "npx license-checker-rseidelsohn --direct --markdown --out oss-notice.md"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "1.0.0-next.28",
-    "@sveltejs/kit": "1.0.0-next.291",
+    "@sveltejs/adapter-static": "1.0.0-next.29",
+    "@sveltejs/kit": "1.0.0-next.294",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
