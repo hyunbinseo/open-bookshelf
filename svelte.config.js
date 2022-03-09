@@ -14,6 +14,9 @@ const config = {
      * Reference https://github.com/sveltejs/kit/issues/962#issuecomment-1010413860
      */
     inlineStyleThreshold: 1024,
+    prerender: {
+      default: true,
+    },
   },
 };
 

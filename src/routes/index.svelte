@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
@@ -25,6 +26,8 @@
 	let headerIsVisible = true;
 
 	let visitorCount = 0;
+
+	let showFirstMessage = true;
 
 	onMount(async () => {
 		const observer = new IntersectionObserver((entries) => {
@@ -52,6 +55,10 @@
 		).json();
 
 		visitorCount = value;
+
+		const interval = setInterval(() => (showFirstMessage = !showFirstMessage), 12000);
+
+		return () => clearInterval(interval);
 	});
 
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
@@ -59,14 +66,18 @@
 
 <div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
-	<div class="flex h-10 bg-gray-900 text-sm text-white">
-		<span class="m-auto">
-			모든 책의 저작권은 <a
-				href="http://xn--hu1b40go5ck8x.com/help.php"
-				target="_blank"
-				rel="noopener">두루책방</a
-			>에 있습니다.
-		</span>
+	<div class="flex h-10 flex-col content-center justify-center bg-gray-900 text-sm text-white">
+		{#if showFirstMessage}
+			<span class="mx-auto" transition:slide={{ duration: 1200 }}>
+				열린 책장은 <a href="http://xn--hu1b40go5ck8x.com/">두루책방</a>의 사용성을 개선한
+				<a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트</a>입니다.
+			</span>
+		{:else}
+			<span class="mx-auto" transition:slide={{ duration: 1200 }}>
+				책의 저작권은 <a href="https://seeart2007.modoo.at/">도서문화재단씨앗</a>과
+				<a href="https://enuma.com/">에누마</a>에 있습니다.
+			</span>
+		{/if}
 	</div>
 	<div bind:this={header}>
 		<Header heading="열린 책장" paragraph="읽고 싶은 책을 찾아볼까요?" />
@@ -114,16 +125,18 @@
 	{/if}
 </div>
 <Footer>
-	<Container>
-		<div class="text-center lg:flex lg:items-center lg:justify-between">
-			{#if visitorCount}
-				<p class="mb-3 text-sm text-gray-500">{visitorCount}번째 방문자님, 반갑습니다.</p>
+	<div class="text-center lg:flex lg:items-center lg:justify-between">
+		<p class="mb-3 text-sm text-gray-500">
+			{#if !visitorCount}
+				방문자 통계를 불러오는 중입니다.
+			{:else}
+				{visitorCount}번째 방문자님, 반갑습니다.
 			{/if}
-			<p class="text-sm text-gray-500">
-				열린 책장 <a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트 소개</a>
-			</p>
-		</div>
-	</Container>
+		</p>
+		<p class="text-sm text-gray-500">
+			열린 책장 <a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트 소개</a>
+		</p>
+	</div>
 </Footer>
 
 <style>
