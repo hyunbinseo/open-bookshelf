@@ -65,7 +65,7 @@
 		<button
 			bind:this={button}
 			type="button"
-			class="group inline-flex items-center justify-center overflow-hidden text-sm font-medium text-gray-700 hover:text-gray-900"
+			class="group inline-flex items-center justify-center overflow-hidden text-sm text-gray-700 hover:text-gray-900"
 			aria-expanded={expanded}
 			on:click={() => {
 				handleDropdown(!expanded);
@@ -116,7 +116,7 @@
 							class="peer sr-only"
 						/>
 						<p
-							class="whitespace-nowrap px-4 py-3 text-sm font-medium text-gray-900 hover:cursor-pointer hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900 hover:peer-checked:cursor-default"
+							class="whitespace-nowrap px-4 py-3 text-sm text-gray-900 hover:cursor-pointer hover:bg-indigo-50 peer-checked:bg-indigo-200 peer-checked:text-indigo-900 hover:peer-checked:cursor-default"
 						>
 							{generateOptionText(option, commonProps)}
 						</p>

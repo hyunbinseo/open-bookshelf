@@ -92,11 +92,9 @@
 			{#if !$reqStories.length}
 				<div class="relative block flex h-full w-full flex-col justify-center text-center">
 					{#if !$isLoaded}
-						<h3 class="animate-pulse text-lg font-medium leading-6 text-gray-900">
-							책을 찾고 있습니다.
-						</h3>
+						<h3 class="animate-pulse leading-6 text-gray-900">책을 찾고 있습니다.</h3>
 					{:else}
-						<h3 class="text-lg font-medium leading-6 text-gray-900">책을 찾을 수 없습니다.</h3>
+						<h3 class="leading-6 text-gray-900">책을 찾을 수 없습니다.</h3>
 						<button
 							type="button"
 							class="mt-2 text-base text-indigo-500"
