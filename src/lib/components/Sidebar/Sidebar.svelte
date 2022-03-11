@@ -35,7 +35,7 @@
 			class="relative ml-auto flex h-full w-3/5 min-w-fit max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl"
 		>
 			<div class="flex items-center justify-between px-4">
-				<h2 class="text-lg font-medium text-gray-900">상세 검색</h2>
+				<h2 class="text-lg font-medium tracking-tight text-gray-900">상세 검색</h2>
 				<button
 					type="button"
 					on:click={() => {

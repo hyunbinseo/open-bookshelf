@@ -8,9 +8,7 @@
 </script>
 
 {#if value}
-	<span
-		class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs font-semibold tabular-nums text-gray-700"
-	>
+	<span class="ml-1.5 rounded bg-gray-200 py-0.5 px-1.5 text-xs tabular-nums text-gray-700">
 		{generateOptionText(value, commonProps)}
 	</span>
 {/if}

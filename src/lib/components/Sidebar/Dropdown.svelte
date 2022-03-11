@@ -48,7 +48,7 @@
 				expanded = !isExpanded;
 			}}
 		>
-			<span class="font-medium text-gray-900">
+			<span class="text-gray-900">
 				{title}
 				{#if !expanded}
 					<span in:fade class="pl-3 text-gray-500">

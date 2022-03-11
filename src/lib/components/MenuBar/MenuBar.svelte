@@ -29,7 +29,7 @@
 				<button
 					bind:this={$sidebarToggleEl}
 					type="button"
-					class="inline-block rounded-sm text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden"
+					class="inline-block rounded-sm text-sm text-gray-700 hover:text-gray-900 sm:hidden"
 					on:click={() => {
 						sidebarState.expand();
 					}}

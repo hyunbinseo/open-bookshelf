@@ -34,7 +34,7 @@
 	</div>
 	<div class="flex items-center justify-between rounded-b-lg p-4 text-base text-gray-900 sm:py-3">
 		<h3 class="truncate" style="word-break: keep-all;">
-			<span class="font-medium">{story.title}</span>
+			<span>{story.title}</span>
 			<span class="text-gray-500">({story.level}단계)</span>
 		</h3>
 		<p class="whitespace-pre sm:ml-3">{story.id}번</p>
