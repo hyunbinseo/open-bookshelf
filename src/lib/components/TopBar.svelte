@@ -23,3 +23,14 @@
 		</span>
 	{/if}
 </div>
+
+<style>
+	a {
+		/* .text-indigo-200 */
+		color: rgb(199 210 254);
+	}
+	a:hover {
+		/* .text-indigo-300 */
+		color: rgb(165 180 252);
+	}
+</style>

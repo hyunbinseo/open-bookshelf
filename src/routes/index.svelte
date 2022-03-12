@@ -118,7 +118,10 @@
 			{/if}
 		</p>
 		<p class="text-sm text-gray-500">
-			열린 책장 <a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트 소개</a>
+			열린 책장 <a
+				href="https://github.com/hyunbinseo/open-bookshelf#readme"
+				class="text-indigo-500 hover:text-indigo-600">프로젝트 소개</a
+			>
 		</p>
 	</div>
 </Footer>

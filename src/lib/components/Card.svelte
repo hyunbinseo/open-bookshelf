@@ -11,7 +11,7 @@
 </script>
 
 <a
-	class="group rounded-lg no-underline shadow-md hover:ring-2 hover:ring-indigo-500"
+	class="group rounded-lg shadow-md hover:ring-2 hover:ring-indigo-500"
 	href={`http://xn--hu1b40go5ck8x.com/e-book/ecatalog5.php?Dir=${story.id}&catimage=1`}
 	target="_blank"
 	rel="noopener"
