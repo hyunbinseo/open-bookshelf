@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
 
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
@@ -10,6 +9,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
+	import TopBar from '$lib/components/TopBar.svelte';
 
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
@@ -26,8 +26,6 @@
 	let headerIsVisible = true;
 
 	let visitorCount = 0;
-
-	let showFirstMessage = true;
 
 	onMount(async () => {
 		const observer = new IntersectionObserver((entries) => {
@@ -55,10 +53,6 @@
 		).json();
 
 		visitorCount = value;
-
-		const interval = setInterval(() => (showFirstMessage = !showFirstMessage), 12000);
-
-		return () => clearInterval(interval);
 	});
 
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
@@ -66,19 +60,8 @@
 
 <div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
-	<div class="flex h-10 flex-col content-center justify-center bg-gray-900 text-sm text-white">
-		{#if showFirstMessage}
-			<span class="mx-auto" transition:slide={{ duration: 1200 }}>
-				열린 책장은 <a href="http://xn--hu1b40go5ck8x.com/">두루책방</a>의 사용성을 개선한
-				<a href="https://github.com/hyunbinseo/open-bookshelf#readme">프로젝트</a>입니다.
-			</span>
-		{:else}
-			<span class="mx-auto" transition:slide={{ duration: 1200 }}>
-				책의 저작권은 <a href="https://seeart2007.modoo.at/">도서문화재단씨앗</a>과
-				<a href="https://enuma.com/">에누마</a>에 있습니다.
-			</span>
-		{/if}
-	</div>
+	<TopBar />
+
 	<div bind:this={header}>
 		<Header heading="열린 책장" paragraph="읽고 싶은 책을 찾아볼까요?" />
 	</div>
@@ -86,6 +69,7 @@
 	{#if $reqStories.length}
 		<Filters />
 	{/if}
+
 	<section aria-labelledby="stories-heading" class="mt-2 flex-1 pb-12">
 		<h2 id="stories-heading" class="sr-only">이야기 목록</h2>
 		<Container isFullHeight={true}>
@@ -118,10 +102,12 @@
 			{/if}
 		</Container>
 	</section>
+
 	{#if !headerIsVisible}
 		<ScrollToTop />
 	{/if}
 </div>
+
 <Footer>
 	<div class="text-center lg:flex lg:items-center lg:justify-between">
 		<p class="mb-3 text-sm text-gray-500">
@@ -136,10 +122,3 @@
 		</p>
 	</div>
 </Footer>
-
-<style>
-	a {
-		text-decoration-line: underline;
-		text-underline-offset: 2px;
-	}
-</style>
