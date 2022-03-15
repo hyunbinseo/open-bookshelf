@@ -118,9 +118,9 @@
 			{/if}
 		</p>
 		<p>
-			열린 책장 <a
-				href="https://github.com/hyunbinseo/open-bookshelf#readme"
-				class="text-indigo-600 hover:text-indigo-700">프로젝트 소개</a
+			오류 및 개선 사항을 <a
+				href="https://github.com/hyunbinseo/open-bookshelf/discussions/2"
+				class="text-indigo-600 hover:text-indigo-700">알려주세요.</a
 			>
 		</p>
 	</div>
