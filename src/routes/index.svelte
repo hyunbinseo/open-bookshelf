@@ -110,17 +110,17 @@
 
 <Footer>
 	<div class="text-center lg:flex lg:items-center lg:justify-between">
-		<p class="mb-3 text-sm text-gray-500">
+		<p class="mb-3">
 			{#if !visitorCount}
 				방문자 통계를 불러오는 중입니다.
 			{:else}
 				{visitorCount}번째 방문자님, 반갑습니다.
 			{/if}
 		</p>
-		<p class="text-sm text-gray-500">
-			열린 책장 <a
-				href="https://github.com/hyunbinseo/open-bookshelf#readme"
-				class="text-indigo-500 hover:text-indigo-600">프로젝트 소개</a
+		<p>
+			오류 및 개선 사항을 <a
+				href="https://github.com/hyunbinseo/open-bookshelf/discussions/2"
+				class="text-indigo-600 hover:text-indigo-700">알려주세요.</a
 			>
 		</p>
 	</div>
