@@ -63,7 +63,7 @@
 	<TopBar />
 
 	<div bind:this={header}>
-		<Header heading="열린 책장" paragraph="읽고 싶은 책을 찾아볼까요?" />
+		<Header />
 	</div>
 
 	{#if $reqStories.length}
