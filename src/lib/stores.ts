@@ -4,8 +4,8 @@ import { writable, derived } from 'svelte/store';
 import focusLock from 'dom-focus-lock';
 
 import stories from '$lib/stories/data';
-
 import { topicEnum } from '$lib/stories/types';
+import { hideBodyOverflow } from '$lib/browser';
 
 import type { SortOption, Language, Level, Topic, Story } from '$lib/stories/types';
 
@@ -39,6 +39,21 @@ export const sidebarState = (() => {
       sidebarToggleEl.subscribe((el) => {
         el?.focus();
       });
+    },
+  };
+})();
+
+export const downloadModalState = (() => {
+  const { subscribe, set } = writable<boolean>(false);
+  return {
+    subscribe,
+    show: () => {
+      hideBodyOverflow(true);
+      set(true);
+    },
+    hide: () => {
+      hideBodyOverflow(false);
+      set(false);
     },
   };
 })();

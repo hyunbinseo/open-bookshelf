@@ -2,9 +2,9 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
 
-	import Item from './Item.svelte';
+	import { downloadModalState } from '$lib/stores';
 
-	export let closeModal: Function;
+	import Item from './Item.svelte';
 </script>
 
 <div
@@ -21,7 +21,7 @@
 			out:fade={{ easing: cubicOut, duration: 500 }}
 			class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
 			aria-hidden="true"
-			on:click={() => closeModal()}
+			on:click={() => downloadModalState.hide()}
 		/>
 
 		<!-- This element is to trick the browser into centering the modal contents. -->
