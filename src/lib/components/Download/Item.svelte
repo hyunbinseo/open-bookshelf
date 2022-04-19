@@ -11,7 +11,7 @@
 <a
 	download
 	href={`${VITE_CDN_URL}/pdf/${pdfFilename}.pdf`}
-	class="min-h-80 overflow-hidden rounded-xl shadow-md hover:opacity-75"
+	class="min-h-80 overflow-hidden rounded-xl shadow-md transition-opacity hover:opacity-75"
 	style="background-color: {color};"
 	target="_blank"
 	rel="noopener"
