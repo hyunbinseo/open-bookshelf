@@ -4,6 +4,7 @@
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
 	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
+	import Download from '$lib/components/Download/Download.svelte';
 	import Filters from '$lib/components/MenuBar/MenuBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
@@ -18,6 +19,7 @@
 		selLanguage,
 		selLevel,
 		selTopic,
+		downloadModalState,
 		reqStories,
 		urlSearchParams
 	} from '$lib/stores';
@@ -58,12 +60,16 @@
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
 </script>
 
+{#if $downloadModalState}
+	<Download />
+{/if}
+
 <div class="flex flex-1 flex-col bg-gray-50 pb-12">
 	<Sidebar />
 	<TopBar />
 
 	<div bind:this={header}>
-		<Header heading="열린 책장" paragraph="읽고 싶은 책을 찾아볼까요?" />
+		<Header />
 	</div>
 
 	{#if $reqStories.length}

@@ -1,6 +1,8 @@
 <script lang="ts">
 	const { VITE_CDN_URL } = import.meta.env;
 
+	import { colors } from '$lib/stories/colors';
+
 	import type { Story } from '$lib/stories/types';
 
 	export let lazilyLoadImg = false;
@@ -18,7 +20,9 @@
 >
 	<div
 		class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-lg"
-		style="-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0)"
+		style={`-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); background-color: ${
+			colors[story.number]
+		};`}
 	>
 		<picture>
 			<source srcset={generateImgSrc('webp')} type="image/webp" />
