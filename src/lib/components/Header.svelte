@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { hideBodyOverflow } from '$lib/browser';
 	import Container from '$lib/components/Container.svelte';
 	import Download from '$lib/components/Download/Download.svelte';
 
@@ -20,6 +21,7 @@
 					type="button"
 					on:click={() => {
 						showDownloadModal = true;
+						hideBodyOverflow(true);
 					}}
 					class="text-indigo-600 hover:text-indigo-700">기록장</button
 				>에 소감을 적고 스티커를 붙이며 독서 왕에 도전해요.
@@ -32,6 +34,7 @@
 	<Download
 		closeModal={() => {
 			showDownloadModal = false;
+			hideBodyOverflow(false);
 		}}
 	/>
 {/if}
