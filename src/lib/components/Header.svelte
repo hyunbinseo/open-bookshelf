@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Container from '$lib/components/Container.svelte';
-	import { downloadModalState } from '$lib/stores';
+	import { downloadModalToggleEl, downloadModalState } from '$lib/stores';
 
 	const subtitle = '읽고 싶은 책을 찾아볼까요?';
 </script>
@@ -16,6 +16,7 @@
 			<span class="hidden sm:inline">
 				<button
 					type="button"
+					bind:this={$downloadModalToggleEl}
 					on:click={() => downloadModalState.show()}
 					class="text-indigo-600 hover:text-indigo-700">기록장</button
 				>에 소감을 적고 스티커를 붙이며 독서 왕에 도전해요.

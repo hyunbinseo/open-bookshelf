@@ -43,17 +43,29 @@ export const sidebarState = (() => {
   };
 })();
 
+export const downloadModalEl = writable<HTMLElement>();
+export const downloadModalToggleEl = writable<HTMLElement>();
 export const downloadModalState = (() => {
   const { subscribe, set } = writable<boolean>(false);
   return {
     subscribe,
-    show: () => {
+    show: async () => {
       hideBodyOverflow(true);
       set(true);
+      await tick();
+      downloadModalEl.subscribe((el) => {
+        if (el) focusLock.on(el);
+      });
     },
     hide: () => {
       hideBodyOverflow(false);
       set(false);
+      downloadModalEl.subscribe((el) => {
+        if (el) focusLock.off(el);
+      });
+      downloadModalToggleEl.subscribe((el) => {
+        el?.focus();
+      });
     },
   };
 })();
