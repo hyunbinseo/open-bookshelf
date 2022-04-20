@@ -2,12 +2,13 @@
 	import { cubicOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
 
-	import { downloadModalState } from '$lib/stores';
+	import { downloadModalEl, downloadModalState } from '$lib/stores';
 
 	import Item from './Item.svelte';
 </script>
 
 <div
+	bind:this={$downloadModalEl}
 	class="fixed inset-0 z-20 overflow-y-auto"
 	aria-labelledby="modal-title"
 	role="dialog"
