@@ -7,6 +7,12 @@
 	import Item from './Item.svelte';
 </script>
 
+<svelte:window
+	on:keydown={async (e) => {
+		if ($downloadModalState && e.code === 'Escape') downloadModalState.hide();
+	}}
+/>
+
 <div
 	bind:this={$downloadModalEl}
 	class="fixed inset-0 z-20 overflow-y-auto"
