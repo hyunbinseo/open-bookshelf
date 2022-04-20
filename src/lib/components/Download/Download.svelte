@@ -37,8 +37,8 @@
 			<h2 class="text-2xl font-medium tracking-tight text-gray-900">열린 책장 기록장</h2>
 			<p class="mt-1 text-gray-500">PDF 파일을 인쇄해서 사용하세요.</p>
 			<div class="mt-3 grid grid-cols-2 gap-x-5 sm:mt-5 sm:gap-x-6">
-				<Item name="숲" color="#a6cd3c" />
-				<Item name="우주" color="#532089" />
+				<Item name="숲" emoji="🌲" color="#a6cd3c" />
+				<Item name="우주" emoji="🚀" color="#532089" />
 			</div>
 		</div>
 	</div>

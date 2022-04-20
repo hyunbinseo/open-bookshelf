@@ -2,6 +2,7 @@
 	const { VITE_CDN_URL } = import.meta.env;
 
 	export let name: string;
+	export let emoji: string;
 	export let color: string;
 
 	const pdfFilename = encodeURIComponent(`열린 책장 기록장 (${name})`);
@@ -26,6 +27,6 @@
 		/>
 	</picture>
 	<div class="w-full rounded-b-xl py-3 text-center text-gray-700">
-		다운로드 ({name})
+		다운로드 {emoji}
 	</div>
 </a>
