@@ -10,7 +10,7 @@
 	import Header from '$lib/components/Header.svelte';
 	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
-	import TopBar from '$lib/components/TopBar.svelte';
+	import TopBar from '$lib/components/TopBar/TopBar.svelte';
 
 	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
 
