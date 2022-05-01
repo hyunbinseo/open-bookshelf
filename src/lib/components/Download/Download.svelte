@@ -39,14 +39,17 @@
 		<div
 			in:fly={{ y: 50, easing: cubicOut }}
 			out:fly={{ y: 50 }}
-			class="relative inline-block overflow-hidden rounded-xl bg-white px-5 py-6 text-left align-bottom shadow-xl sm:my-8 sm:w-full sm:max-w-xl sm:px-6 sm:py-7 sm:align-middle"
+			class="relative inline-block overflow-hidden rounded-xl bg-white px-5 py-6 text-left align-bottom shadow-xl sm:my-8 sm:w-full sm:max-w-xl sm:p-6 sm:pt-7 sm:align-middle"
 		>
-			<h2 class="text-2xl font-medium tracking-tight text-gray-900">열린 책장 기록장</h2>
-			<p class="mt-1 text-gray-500">PDF 파일을 인쇄해서 사용하세요.</p>
+			<h2 class="text-2xl font-medium tracking-tight text-gray-900">독서 기록장</h2>
+			<p class="mt-1 text-gray-500">PDF 파일을 인쇄해 사용합니다.</p>
 			<div class="mt-3 grid grid-cols-2 gap-x-5 sm:mt-5 sm:gap-x-6">
 				<Item name="숲" emoji="🌲" color="#a6cd3c" />
 				<Item name="우주" emoji="🚀" color="#532089" />
 			</div>
+			<p class="mt-6 hidden text-sm text-gray-500 sm:block">
+				* 독서 기록 카드(4페이지)는 필요한 만큼 인쇄해 사용합니다.
+			</p>
 		</div>
 	</div>
 </div>
