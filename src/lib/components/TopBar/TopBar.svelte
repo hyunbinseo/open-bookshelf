@@ -30,12 +30,13 @@
 
 <!-- Reference https://github.com/sveltejs/svelte/issues/4843 -->
 <style>
-	:global(a, button) {
+	div :global(a),
+	div :global(button) {
 		/* .text-indigo-200 */
 		color: rgb(199 210 254);
 	}
-
-	:global(a:hover, button:hover) {
+	div :global(a:hover),
+	div :global(button:hover) {
 		/* .text-indigo-300 */
 		color: rgb(165 180 252);
 	}
