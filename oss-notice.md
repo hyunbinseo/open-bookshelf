@@ -11,8 +11,7 @@
 - [eslint-plugin-svelte3@3.4.1](https://github.com/sveltejs/eslint-plugin-svelte3) - MIT
 - [eslint@7.32.0](https://github.com/eslint/eslint) - MIT
 - [postcss@8.4.12](https://github.com/postcss/postcss) - MIT
-- [prettier-plugin-svelte@2.6.0](https://github.com/sveltejs/prettier-plugin-svelte) - MIT
-- [prettier-plugin-tailwindcss@0.1.8](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - Custom: https://raw.githubusercontent.com/tailwindlabs/prettier-plugin-tailwindcss/main/.github/banner.jpg
+- [prettier-plugin-tailwindcss@0.1.12](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) - MIT\*
 - [prettier@2.6.1](https://github.com/prettier/prettier) - MIT
 - [svelte-check@2.4.6](https://github.com/sveltejs/language-tools) - MIT
 - [svelte-preprocess@4.10.4](https://github.com/sveltejs/svelte-preprocess) - MIT
