@@ -1,10 +1,10 @@
 {
   "name": "open-bookshelf",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
+    "dev": "vite dev",
+    "build": "vite build",
     "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
+    "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
@@ -12,20 +12,20 @@
     "postinstall": "npx license-checker-rseidelsohn --direct --markdown --out oss-notice.md"
   },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=16.9",
+    "npm": "8.x"
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "1.0.0-next.29",
-    "@sveltejs/kit": "1.0.0-next.294",
+    "@sveltejs/adapter-static": "1.0.0-next.39",
+    "@sveltejs/kit": "1.0.0-next.373",
     "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
     "autoprefixer": "^10.4.2",
     "dom-focus-lock": "^1.0.4",
-    "eslint": "^7.32.0",
+    "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte3": "^3.2.1",
+    "eslint-plugin-svelte3": "^4.0.0",
     "postcss": "^8.4.5",
     "prettier": "^2.4.1",
     "prettier-plugin-tailwindcss": "^0.1.12",

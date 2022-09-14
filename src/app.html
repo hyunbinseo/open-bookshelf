@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:image" content="%svelte.assets%/opengraph.jpg" />
+  <meta property="og:image" content="%sveltekit.assets%/opengraph.jpg" />
   <!-- Icon from https://www.svgrepo.com/svg/144096/bookshelf -->
-  <link rel="icon" type="image/svg+xml" href="%svelte.assets%/favicon.svg" />
-  <link rel="icon" type="image/png" href="%svelte.assets%/favicon.png" />
-  %svelte.head%
+  <link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
+  <link rel="icon" type="image/png" href="%sveltekit.assets%/favicon.png" />
+  %sveltekit.head%
 </head>
 
 <body>
   <script>
-    if (/MSIE|Trident/.test(window.navigator.userAgent)) location.href = '%svelte.assets%/unsupported';
+    if (/MSIE|Trident/.test(window.navigator.userAgent)) location.href = '%sveltekit.assets%/unsupported';
   </script>
-  <div class="flex h-screen flex-col">%svelte.body%</div>
+  <div class="flex h-screen flex-col">%sveltekit.body%</div>
 </body>
 
 </html>
