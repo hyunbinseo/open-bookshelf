@@ -29,7 +29,7 @@
 			<img
 				src={generateImgSrc('jpg')}
 				alt={`${story.title} 표지`}
-				class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-125"
+				class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-110"
 				loading={lazilyLoadImg ? 'lazy' : null}
 				width="640"
 				height="360"
