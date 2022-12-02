@@ -13,7 +13,7 @@
 	download
 	href={`${VITE_CDN_URL}/pdf/${pdfFilename}.pdf`}
 	target="_blank"
-	rel="noopener"
+	rel="noreferrer"
 	class="group overflow-hidden rounded-xl shadow-md hover:ring-2 hover:ring-indigo-500"
 >
 	<div
@@ -23,7 +23,7 @@
 		<picture>
 			<source srcset={`${VITE_CDN_URL}/image/printable/${imgFilename}.webp`} type="image/webp" />
 			<img
-				class="transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+				class="transition-transform duration-300 ease-out group-hover:scale-110"
 				src={`${VITE_CDN_URL}/image/printable/${imgFilename}.jpg`}
 				alt={`열린 책장 기록장 (${name}) 표지`}
 				width="595"
