@@ -47,8 +47,8 @@
 				<Item name="숲" emoji="🌲" color="#a6cd3c" />
 				<Item name="우주" emoji="🚀" color="#532089" />
 			</div>
-			<p class="mt-6 hidden text-sm text-gray-500 sm:block">
-				* 독서 기록 카드(4페이지)는 필요한 만큼 인쇄해 사용합니다.
+			<p class="mt-6 hidden text-right text-sm text-gray-500 sm:block">
+				(4페이지) 독서 기록 카드는 필요한 만큼 인쇄해 사용합니다.
 			</p>
 		</div>
 	</div>
