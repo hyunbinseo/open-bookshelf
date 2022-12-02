@@ -13,7 +13,7 @@
 	download
 	href={`${VITE_CDN_URL}/pdf/${pdfFilename}.pdf`}
 	target="_blank"
-	rel="noopener"
+	rel="noreferrer"
 	class="group overflow-hidden rounded-xl shadow-md hover:ring-2 hover:ring-indigo-500"
 >
 	<div

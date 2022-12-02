@@ -12,7 +12,7 @@
     "postinstall": "npx license-checker-rseidelsohn --direct --markdown --out oss-notice.md"
   },
   "engines": {
-    "node": ">=16.9",
+    "node": "16.x",
     "npm": "8.x"
   },
   "devDependencies": {

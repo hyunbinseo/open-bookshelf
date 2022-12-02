@@ -16,7 +16,7 @@
 	class="group rounded-lg shadow-md hover:ring-2 hover:ring-indigo-500"
 	href={`http://xn--hu1b40go5ck8x.com/e-book/ecatalog5.php?Dir=${story.id}&catimage=1`}
 	target="_blank"
-	rel="noopener"
+	rel="noreferrer"
 >
 	<div
 		class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-lg"
