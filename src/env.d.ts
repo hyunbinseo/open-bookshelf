@@ -8,3 +8,10 @@ interface ImportMetaEnv {
 interface ImportMeta {
 	readonly env: ImportMetaEnv;
 }
+
+declare namespace NodeJS {
+	export interface ProcessEnv {
+		readonly PRODUCTION_BRANCH: string;
+		readonly CUSTOM_DOMAIN: string;
+	}
+}
