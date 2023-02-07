@@ -15,5 +15,4 @@
 
 ## 비고
 
-- [오픈소스 소프트웨어](oss-notice.md)를 활용해 제작되었습니다.
 - 오류 및 개선 사항은 [Discussions](https://github.com/hyunbinseo/open-bookshelf/discussions/2)에 남겨주세요.
