@@ -1,6 +1,5 @@
 <script lang="ts">
-	import '$lib/styles/font.css';
-	import '$lib/styles/tailwind.css';
+	import './app.css';
 
 	import stories from '$lib/stories/data';
 
