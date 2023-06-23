@@ -75,7 +75,7 @@
 		</button>
 	</h3>
 	{#if expanded}
-		<div class="pt-6" transition:slide|local>
+		<div class="pt-6" transition:slide>
 			<div class="space-y-6">
 				{#each !allowValueReset ? options : [undefined, ...options] as option (option)}
 					<div class="flex items-center">
