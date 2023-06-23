@@ -24,8 +24,6 @@
 	let header: HTMLElement;
 	let headerIsVisible = true;
 
-	let visitorCount = 0;
-
 	onMount(async () => {
 		const observer = new IntersectionObserver((entries) => {
 			const [{ isIntersecting }] = entries;
@@ -46,12 +44,6 @@
 		if (isLevel(reqLevel)) selLevel.set(reqLevel);
 
 		isLoaded.set(true);
-
-		const { value } = await (
-			await fetch('https://api.countapi.xyz/hit/bookshelf.hyunbin.page/')
-		).json();
-
-		visitorCount = value;
 	});
 
 	$: if ($isLoaded) window.history.replaceState(null, '', `?${$urlSearchParams}`);
@@ -112,19 +104,9 @@
 </div>
 
 <Footer>
-	<div class="text-center lg:flex lg:items-center lg:justify-between">
-		<p class="mb-3">
-			{#if !visitorCount}
-				방문자 통계를 불러오는 중입니다.
-			{:else}
-				{visitorCount}번째 방문자님, 반갑습니다.
-			{/if}
-		</p>
-		<p>
-			오류 및 개선 사항을 <a
-				href="https://github.com/hyunbinseo/open-bookshelf/discussions/2"
-				class="text-indigo-600 hover:text-indigo-700">알려주세요.</a
-			>
-		</p>
-	</div>
+	오류 및 개선 사항을 <a
+		target="_blank"
+		href="https://github.com/hyunbinseo/open-bookshelf/discussions/2"
+		class="text-indigo-600 hover:text-indigo-700">알려주세요.</a
+	>
 </Footer>
