@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { downloadModalToggleEl, downloadModalState } from '$lib/stores';
-
+	import { downloadModalState, downloadModalToggleEl } from '$lib/stores';
 	import Container from './Container.svelte';
 </script>
 

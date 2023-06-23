@@ -2,17 +2,15 @@
 	import Container from '$lib/components/Container.svelte';
 	import Badge from '$lib/components/MenuBar/Badge.svelte';
 	import Dropdown from '$lib/components/MenuBar/Dropdown.svelte';
-
-	import { sortProps, languageProps, topicProps, levelProps } from '$lib/stories/filters';
-
 	import {
-		sidebarToggleEl,
-		sidebarState,
 		selLanguage,
 		selLevel,
+		selSort,
 		selTopic,
-		selSort
+		sidebarState,
+		sidebarToggleEl
 	} from '$lib/stores';
+	import { languageProps, levelProps, sortProps, topicProps } from '$lib/stories/filters';
 </script>
 
 <section

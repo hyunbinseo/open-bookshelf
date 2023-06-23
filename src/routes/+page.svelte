@@ -1,28 +1,25 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	import Card from '$lib/components/Card.svelte';
 	import Container from '$lib/components/Container.svelte';
-	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
 	import Download from '$lib/components/Download/Download.svelte';
-	import Filters from '$lib/components/MenuBar/MenuBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
+	import { collapseAllDropdown } from '$lib/components/MenuBar/Dropdown.svelte';
+	import Filters from '$lib/components/MenuBar/MenuBar.svelte';
 	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
+	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
 	import TopBar from '$lib/components/TopBar/TopBar.svelte';
-
-	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
-
 	import {
+		downloadModalState,
 		isLoaded,
+		reqStories,
 		selLanguage,
 		selLevel,
 		selTopic,
-		downloadModalState,
-		reqStories,
 		urlSearchParams
 	} from '$lib/stores';
+	import { isLanguage, isLevel, isTopic } from '$lib/stories/types';
+	import { onMount } from 'svelte';
 
 	let header: HTMLElement;
 	let headerIsVisible = true;

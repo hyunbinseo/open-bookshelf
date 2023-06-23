@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	const collapseFunctions = new Set<Function>();
+	const collapseFunctions = new Set<() => void>();
 	export const collapseAllDropdown = () => {
 		[...collapseFunctions].forEach((fn) => {
 			fn();
@@ -8,15 +8,11 @@
 </script>
 
 <script lang="ts">
-	import { onMount, tick } from 'svelte';
-
-	import focusLock from 'dom-focus-lock';
-
 	import Badge from '$lib/components/MenuBar/Badge.svelte';
-
+	import type { FilterProps, Option } from '$lib/stories/filters';
 	import { generateOptionText } from '$lib/stories/filters';
-
-	import type { Option, FilterProps } from '$lib/stories/filters';
+	import focusLock from 'dom-focus-lock';
+	import { onMount, tick } from 'svelte';
 
 	export let alignToLeft = false;
 	export let value: Option = undefined;
@@ -24,7 +20,7 @@
 
 	const { allowValueReset, options, title, name } = commonProps;
 
-	let expanded: boolean = false;
+	let expanded = false;
 
 	onMount(() => {
 		collapseFunctions.add(() => {

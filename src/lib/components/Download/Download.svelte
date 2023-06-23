@@ -1,9 +1,7 @@
 <script lang="ts">
+	import { downloadModalEl, downloadModalState } from '$lib/stores';
 	import { cubicOut } from 'svelte/easing';
 	import { fade, fly } from 'svelte/transition';
-
-	import { downloadModalEl, downloadModalState } from '$lib/stores';
-
 	import Item from './Item.svelte';
 </script>
 
@@ -21,7 +19,7 @@
 	aria-modal="true"
 >
 	<div
-		class="flex min-h-screen items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0"
+		class="flex min-h-screen items-end justify-center px-4 pb-20 pt-4 text-center sm:block sm:p-0"
 	>
 		<div
 			in:fade={{ easing: cubicOut }}

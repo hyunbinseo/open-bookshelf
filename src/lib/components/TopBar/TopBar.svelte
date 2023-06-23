@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
 	import About from './Mobile/About.svelte';
 	import Copyright from './Mobile/Copyright.svelte';
 	import Download from './Mobile/Download.svelte';

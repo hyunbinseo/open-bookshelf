@@ -19,7 +19,7 @@
 	rel="noreferrer"
 >
 	<div
-		class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-lg"
+		class="aspect-h-9 aspect-w-16 w-full overflow-hidden rounded-t-lg"
 		style={`-webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); background-color: ${
 			colors[story.number]
 		};`}

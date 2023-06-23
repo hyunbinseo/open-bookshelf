@@ -1,13 +1,10 @@
-import { tick } from 'svelte';
-import { writable, derived } from 'svelte/store';
-
-import focusLock from 'dom-focus-lock';
-
-import stories from '$lib/stories/data';
-import { topicEnum } from '$lib/stories/types';
 import { hideBodyOverflow } from '$lib/browser';
-
-import type { SortOption, Language, Level, Topic, Story } from '$lib/stories/types';
+import stories from '$lib/stories/data';
+import type { Language, Level, SortOption, Story, Topic } from '$lib/stories/types';
+import { topicEnum } from '$lib/stories/types';
+import focusLock from 'dom-focus-lock';
+import { tick } from 'svelte';
+import { derived, writable } from 'svelte/store';
 
 export const isLoaded = writable<boolean>(false);
 

@@ -1,11 +1,8 @@
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
-
 	import Dropdown from '$lib/components/Sidebar/Dropdown.svelte';
-
-	import { languageProps, topicProps, levelProps } from '$lib/stories/filters';
-
-	import { sidebarEl, sidebarState, selLanguage, selLevel, selTopic } from '$lib/stores';
+	import { selLanguage, selLevel, selTopic, sidebarEl, sidebarState } from '$lib/stores';
+	import { languageProps, levelProps, topicProps } from '$lib/stories/filters';
+	import { fade, fly } from 'svelte/transition';
 </script>
 
 <svelte:window

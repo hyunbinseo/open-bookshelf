@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	const collapseFunctions = new Set<Function>();
+	const collapseFunctions = new Set<() => void>();
 	const collapseAllDropdown = () => {
 		[...collapseFunctions].forEach((fn) => {
 			fn();
@@ -8,19 +8,17 @@
 </script>
 
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { slide, fade } from 'svelte/transition';
-
+	import type { FilterProps, Option } from '$lib/stories/filters';
 	import { generateOptionText } from '$lib/stories/filters';
-
-	import type { Option, FilterProps } from '$lib/stories/filters';
+	import { onMount } from 'svelte';
+	import { fade, slide } from 'svelte/transition';
 
 	export let value: Option = undefined;
 	export let commonProps: FilterProps;
 
 	const { allowValueReset, options, title, name } = commonProps;
 
-	let expanded: boolean = false;
+	let expanded = false;
 
 	onMount(() => {
 		collapseFunctions.add(() => {
