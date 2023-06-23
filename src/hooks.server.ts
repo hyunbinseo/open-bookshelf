@@ -1,15 +1,11 @@
+import { PUBLIC_CUSTOM_DOMAIN, PUBLIC_PRODUCTION_BRANCH } from '$env/static/public';
 import type { Handle } from '@sveltejs/kit';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
-
-const { PRODUCTION_BRANCH, CUSTOM_DOMAIN } = process.env;
 
 export const handle = (async ({ event, resolve }) =>
 	await resolve(event, {
 		transformPageChunk: ({ html }) =>
 			html.replace(
 				/__domain/g,
-				process.env?.CF_PAGES_BRANCH === PRODUCTION_BRANCH ? CUSTOM_DOMAIN : ''
+				process.env?.CF_PAGES_BRANCH === PUBLIC_PRODUCTION_BRANCH ? PUBLIC_CUSTOM_DOMAIN : ''
 			)
 	})) satisfies Handle;

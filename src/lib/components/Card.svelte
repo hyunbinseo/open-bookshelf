@@ -1,15 +1,13 @@
 <script lang="ts">
-	const { VITE_CDN_URL } = import.meta.env;
-
+	import { PUBLIC_CDN_URL } from '$env/static/public';
 	import { colors } from '$lib/stories/colors';
-
 	import type { Story } from '$lib/stories/types';
 
 	export let lazilyLoadImg = false;
 	export let story: Story;
 
 	const generateImgSrc = (extension: 'webp' | 'jpg') =>
-		`${VITE_CDN_URL}/image/cover/${story.number}.${extension}`;
+		`${PUBLIC_CDN_URL}/image/cover/${story.number}.${extension}`;
 </script>
 
 <a
