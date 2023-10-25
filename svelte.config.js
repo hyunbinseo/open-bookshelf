@@ -9,10 +9,6 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-		/*
-		 * Inline all stylesheets smaller than 1kb
-		 * Reference https://github.com/sveltejs/kit/issues/962#issuecomment-1010413860
-		 */
 		inlineStyleThreshold: 1024
 	}
 };

@@ -1,4 +1,7 @@
 {
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true,
 		"source.organizeImports": true
@@ -8,5 +11,7 @@
 	"editor.insertSpaces": false,
 	"eslint.validate": ["javascript", "javascriptreact", "svelte"],
 	"files.eol": "\n",
-	"files.insertFinalNewline": true
+	"files.insertFinalNewline": true,
+	"js/ts.implicitProjectConfig.checkJs": true,
+	"svelte.enable-ts-plugin": true
 }
